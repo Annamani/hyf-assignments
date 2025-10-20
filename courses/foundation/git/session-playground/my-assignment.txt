@@ -1,1 +1,2 @@
 This is my assignment file for the session playground.
+I have added more text to my -assignment file after the first commit.

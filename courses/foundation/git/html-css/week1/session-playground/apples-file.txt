@@ -1,0 +1,2 @@
+This text is from apples-file.txt
+Adding some more text to apples-file.txt after the first commit.

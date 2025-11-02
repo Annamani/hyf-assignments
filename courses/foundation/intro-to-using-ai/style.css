@@ -81,6 +81,17 @@ h1 {
     font-style: italic;
 }
 
+.project-title {
+    margin: 15px 0;
+    font-size: large;
+    font-weight: bold;
+}
+
+.project-description {
+    margin-bottom: 20px;
+    font-size: medium;
+    line-height: 1.5;
+}
 
 .projects ul,
 .contact-details a {

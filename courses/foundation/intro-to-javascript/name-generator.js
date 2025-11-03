@@ -2,6 +2,6 @@ const firstWords = ['Easy', 'Awesome', 'Corporate', 'Innovative', 'Dynamic', 'Gl
 const secondWords = ['Solutions', 'Technologies', 'Systems', 'Concepts', 'Match', 'Strategies', 'Applications', 'Platforms', 'Networks', 'Services'];
 //create a variable called startupName.
 const startupName = firstWords[Math.floor(Math.random() * firstWords.length)] + " " + secondWords[Math.floor(Math.random() * secondWords.length)];
-
-console.log("The startup Name is : " + startupName);
+console.log(startupName);
+console.log("The startup: " + startupName + " contains" + startupName.length + " characters");
 

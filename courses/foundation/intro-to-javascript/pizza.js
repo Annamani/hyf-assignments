@@ -5,8 +5,8 @@ console.log("New pizza order: " + myFavouritePizza + "." + "The price of the piz
 );
 
 const orderPizza = 2;
-let isFamilySizePizza´=false;
-let totalPrice=0;
+let isFamilySizePizza = false;
+let totalPrice = 0;
 
 isFamilySizePizza = true;
 if (isFamilySizePizza) {

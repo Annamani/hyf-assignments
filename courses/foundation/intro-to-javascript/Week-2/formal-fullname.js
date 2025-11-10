@@ -10,4 +10,5 @@ const firstName = "Annamani";
 const lastName = "Kamma";
 getFullName(firstName, lastName, true);// returns "Lord Annamani Kamma"
 getFullName("Benjamin", "Hughes", false); // returns "Benjamin Hughes"
-getFullName("Jemimag", "Rodgarus", true); 
+getFullName("Jemimag", "Rodgarus", true); //returns "Lord  Jemimag Rodgarus"
+getFullName("John", "Minduag");// returns John Minduag

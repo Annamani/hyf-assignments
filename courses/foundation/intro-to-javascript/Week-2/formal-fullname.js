@@ -1,12 +1,27 @@
 function getFullName(name, surname, useFormalName, gender) {
-    if (useFormalName || gender) {
+    if (!name && !surname) {
+        console.log("You did not provide any name");
+        return;
+    }
+
+    if (!name || name.trim() === "") {
+        console.log("You did not provide first name");
+        return;
+    }
+
+    if (!surname || surname.trim() === "") {
+        console.log("You did not provide last name");
+        return;
+    }
+
+    if (useFormalName) {
         if (gender === "female") {
-            console.log("Madam ", name, surname)
-        } else if (gender === "male") {
-            console.log("Lord ", name, surname)
+            console.log("Madam", name, surname);
         } else {
-            console.log(name, surname);
+            console.log("Lord", name, surname);
         }
+    } else {
+        console.log(name, surname);
     }
 }
 

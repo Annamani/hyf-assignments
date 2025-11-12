@@ -1,6 +1,6 @@
 const class07Students = [];
 function addStudentToClass(studentName) {
-    if (!studentName) {
+    if (!studentName || studentName.trim() === "") {
         console.log("You cannot add an empty name to the class");
         return;
     }

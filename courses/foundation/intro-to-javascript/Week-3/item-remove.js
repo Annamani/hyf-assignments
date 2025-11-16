@@ -8,6 +8,14 @@ const names = [
     "Katrine",
     "Tala",
 ];
+console.log("Initital Array: ", names)
 const nameToRemove = "Ahmad";
 
-console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'Katrine', 'Tala']
+// const index = names.indexOf(nameToRemove);
+// if (index !== -1) {
+//     names.splice(index, 1);
+// }
+//console.log("Modified Array: ", names);
+
+const modifiedArray = names.filter(name => name !== nameToRemove);
+console.log("Modified Array: ", modifiedArray); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'Katrine', 'Tala']

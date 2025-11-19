@@ -28,7 +28,6 @@ function logOutSeriesText() {
     let totalPercentage = 0;
     for (let i = 0; i < seriesDurations.length; i++) {
         const seriesinMinutes = seriesDurations[i].days * HoursInDay * totalMinutes + seriesDurations[i].hours * totalMinutes + seriesDurations[i].minutes;
-        // console.log(seriesinMinutes);
         const percentage = (seriesinMinutes / totalLifeSpanInMinutes) * 100;
         totalPercentage += percentage;
         console.log(`${seriesDurations[i].title} took ${percentage.toFixed(3)}% of my life`);

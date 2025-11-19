@@ -13,13 +13,15 @@ saveNote("Do laundry", 2);
 console.log("Saved notes ", notes);
 
 function getNote(id) {
-    for (let i = 0; i < notes.length; i++) {
-        if (typeof id == "number") {
+    if (typeof id !== "number") {
+        return "Please provide an id with number";
+    }
+    else {
+        for (let i = 0; i < notes.length; i++) {
+
             if (id === notes[i].id) {
                 return notes[i].content;
             }
-        } else {
-            return "Please provide an id with number";
         }
     }
 }
@@ -36,7 +38,5 @@ function logOutNotesFormatted() {
     }
 }
 
-logOutNotesFormatted(); // should log out the text below
+logOutNotesFormatted();
 
-// The note with id: 1, has the following note text: Pick up groceries
-// The note with id: 2, has the following note text: Do laundry

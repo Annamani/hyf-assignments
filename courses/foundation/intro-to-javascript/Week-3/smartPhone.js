@@ -18,9 +18,9 @@ addActivity(todayDate, "Github", 20);
 addActivity(todayDate, "Instagram", 55);
 console.log("Activities ", activities);
 
-function showStatus() {
+function showStatus(activities) {
     let totalDuration = 0;
-    if (!activities) {
+    if (activities.length === 0) {
         console.log("Add some activities before calling showStatus");
     } else {
         for (let i = 0; i < activities.length; i++) {
@@ -32,19 +32,23 @@ function showStatus() {
         console.log("You have reached your limit, no more smartphoning for you!.")
     }
 }
-showStatus();
-function getMostSpentActivity() {
-    if (!activities)
-        return;
+showStatus(activities);
+function getMostSpentActivity(activities) {
     let maxDuration = 0;
     let mostSpent = '';
-    for (let i = 0; i < activities.length; i++) {
-        if (activities[i].duration > maxDuration) {
-            maxDuration = activities[i].duration;
-            mostSpent = activities[i].activity;
-        }
+    if (activities.length === 0) {
+        console.log("Please add some activities first");
     }
-    console.log(`You spent the most time on: ${mostSpent} that is ${maxDuration} minites.`);
+    else {
+        for (let i = 0; i < activities.length; i++) {
+            if (activities[i].duration > maxDuration) {
+                maxDuration = activities[i].duration;
+                mostSpent = activities[i].activity;
+            }
+        }
+        console.log(`You spent the most time on: ${mostSpent} that is ${maxDuration} minites.`);
+
+    }
 
 }
-getMostSpentActivity();
+getMostSpentActivity(activities);

@@ -32,4 +32,19 @@ function showStatus() {
         console.log("You have reached your limit, no more smartphoning for you!.")
     }
 }
-showStatus(activities); // will log out this "You have added 3 activities. They amount to 78 min. of usage"
+showStatus();
+function getMostSpentActivity() {
+    if (!activities)
+        return;
+    let maxDuration = 0;
+    let mostSpent = '';
+    for (let i = 0; i < activities.length; i++) {
+        if (activities[i].duration > maxDuration) {
+            maxDuration = activities[i].duration;
+            mostSpent = activities[i].activity;
+        }
+    }
+    console.log(`You spent the most time on: ${mostSpent} that is ${maxDuration} minites.`);
+
+}
+getMostSpentActivity();

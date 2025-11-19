@@ -1,5 +1,4 @@
 const notes = [];
-console.log("/***************SAVE NOTES********************/");
 function saveNote(content, id) {
     // write some code here
     const obj = {
@@ -13,7 +12,6 @@ saveNote("Pick up groceries", 1);
 saveNote("Do laundry", 2);
 console.log("Saved notes ", notes);
 
-console.log("/***************GET NOTES********************/");
 function getNote(id) {
     for (let i = 0; i < notes.length; i++) {
         if (typeof id == "number") {
@@ -31,8 +29,6 @@ const thirdNote = getNote("anna");
 console.log(firstNote);
 console.log(secondNote);
 console.log(thirdNote);
-
-console.log("/***************LOG OUT NOTES********************/");
 
 function logOutNotesFormatted() {
     for (let j = 0; j < notes.length; j++) {

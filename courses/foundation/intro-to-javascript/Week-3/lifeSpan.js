@@ -24,7 +24,7 @@ function logOutSeriesText() {
     const HoursInDay = 24;
     const totalMinutes = 60;
     const daysInYear = 365;
-    let totalLifeSpanInMinutes = avgLifeSpan * HoursInDay * totalMinutes * daysInYear;
+    const totalLifeSpanInMinutes = avgLifeSpan * HoursInDay * totalMinutes * daysInYear;
     let totalPercentage = 0;
     for (let i = 0; i < seriesDurations.length; i++) {
         const seriesinMinutes = seriesDurations[i].days * HoursInDay * totalMinutes + seriesDurations[i].hours * totalMinutes + seriesDurations[i].minutes;

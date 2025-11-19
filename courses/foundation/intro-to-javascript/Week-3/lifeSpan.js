@@ -21,14 +21,13 @@ const seriesDurations = [
 
 function logOutSeriesText() {
     const avgLifeSpan = 80;
-    const totalHours = 24;
+    const HoursInDay = 24;
     const totalMinutes = 60;
     const daysInYear = 365;
-    let totalLifeSpanInMinutes = avgLifeSpan * totalHours * totalMinutes * daysInYear;
-    //console.log(totalLifeSpanInMinutes);
+    let totalLifeSpanInMinutes = avgLifeSpan * HoursInDay * totalMinutes * daysInYear;
     let totalPercentage = 0;
     for (let i = 0; i < seriesDurations.length; i++) {
-        const seriesinMinutes = seriesDurations[i].days * totalHours * totalMinutes + seriesDurations[i].hours * totalMinutes + seriesDurations[i].minutes;
+        const seriesinMinutes = seriesDurations[i].days * HoursInDay * totalMinutes + seriesDurations[i].hours * totalMinutes + seriesDurations[i].minutes;
         // console.log(seriesinMinutes);
         const percentage = (seriesinMinutes / totalLifeSpanInMinutes) * 100;
         totalPercentage += percentage;
@@ -38,8 +37,3 @@ function logOutSeriesText() {
 }
 
 logOutSeriesText();
-// Game of thrones took 0.01% of my life
-// Sopranos took 0.012% of my life
-// The Wire took 0.007% of my life
-
-// In total that is 0.2% of my life

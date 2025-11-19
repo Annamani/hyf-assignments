@@ -1,6 +1,5 @@
 const notes = [];
 function saveNote(content, id) {
-    // write some code here
     const obj = {
         content,
         id

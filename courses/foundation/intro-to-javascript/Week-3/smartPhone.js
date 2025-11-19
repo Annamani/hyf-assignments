@@ -1,8 +1,13 @@
 const activities = [];
 const usageLimitInMinutes = 30;
 function addActivity(date, activity, duration) {
-    if (typeof activity !== "string" || !activity || typeof duration !== "number" || duration <= 0) {
-        console.log("Please provide valid date, activity, and duration!")
+    if (
+        typeof activity !== "string" ||
+        !activity ||
+        typeof duration !== "number" ||
+        duration <= 0
+    ) {
+        console.log("Please provide valid date, activity, and duration!");
         return;
     }
     const obj = {
@@ -26,29 +31,30 @@ function showStatus(activities) {
         for (let i = 0; i < activities.length; i++) {
             totalDuration += activities[i].duration;
         }
-        console.log(`You have added ${activities.length} activities. They amount to ${totalDuration} min. of usage`);
+        console.log(
+            `You have added ${activities.length} activities. They amount to ${totalDuration} min. of usage`
+        );
     }
     if (totalDuration >= usageLimitInMinutes) {
-        console.log("You have reached your limit, no more smartphoning for you!.")
+        console.log("You have reached your limit, no more smartphoning for you!.");
     }
 }
 showStatus(activities);
 function getMostSpentActivity(activities) {
     let maxDuration = 0;
-    let mostSpent = '';
+    let mostSpent = "";
     if (activities.length === 0) {
         console.log("Please add some activities first");
-    }
-    else {
+    } else {
         for (let i = 0; i < activities.length; i++) {
             if (activities[i].duration > maxDuration) {
                 maxDuration = activities[i].duration;
                 mostSpent = activities[i].activity;
             }
         }
-        console.log(`You spent the most time on: ${mostSpent} that is ${maxDuration} minites.`);
-
+        console.log(
+            `You spent the most time on: ${mostSpent} that is ${maxDuration} minites.`
+        );
     }
-
 }
 getMostSpentActivity(activities);

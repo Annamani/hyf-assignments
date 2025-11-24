@@ -7,10 +7,10 @@ function squareDigits(num) {
         result = squaredNumber.toString() + result;
         num = Math.floor(num / 10);
     }
-    return result;
+    return parseInt(result);
 }
 console.log(squareDigits(9119)); // Output: 811181
 console.log(squareDigits(765)); // Output: 493625
-console.log(squareDigits(0));    // Output: 0
-console.log(squareDigits(3212));  // Output: 9414
-console.log(squareDigits(89));   // Output: 6481
+console.log(squareDigits(0));   // Output: 0
+console.log(squareDigits(3212)); // Output: 9414
+console.log(squareDigits(89));  // Output: 6481

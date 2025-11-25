@@ -1,7 +1,7 @@
 function highAndLow(numbers) {
     const numArray = numbers.split(' ');
-    for (let i = 0; i < numArray.length; i++) {
-        numArray[i] = parseInt(numArray[i]);
+    for (let num of numArray) {
+        numArray[num] = parseInt(numArray[num]);
     }
     let maxNum = numArray[0];
     let minNum = numArray[0];
@@ -16,7 +16,7 @@ function highAndLow(numbers) {
                 minNum = numArray[i];
             }
         }
-        console.log(maxNum + " " + minNum);
+        console.log(`"${maxNum} ${minNum}"`);
     }
 }
 highAndLow("1 2 3 4 5"); // return "5 1"

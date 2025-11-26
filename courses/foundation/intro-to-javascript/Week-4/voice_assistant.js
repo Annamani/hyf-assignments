@@ -41,7 +41,7 @@ const getReply = (command) => {
     if (command === "What is on my todo?") {
         todoList = getReply.todoList || [];
         if (todoList.length >= 1) {
-            return `You have ${todoList.length} tasks on your todo : ${todoList.join(" , ")}`;
+            return `You have ${todoList.length} tasks on your todo : ${todoList.join(", ")}`;
         } else {
             return "Your todo list is empty.";
         }
@@ -86,10 +86,12 @@ const getReply = (command) => {
 
     if (command.startsWith("Set a timer for") && command.includes("minutes")) {
         const timePart = command.replace("Set a timer for", "").replace("minutes", "").trim();
-        //When 4 minutes is up: "Timer done".---NEED TO DOOO
+        setTimeout(() => {
+            return "Timer done";
+        }, 4 * 60 * 1000);
         return `Timer set for ${timePart} minutes`;
     }
-    return "I'm sorry, I didn't understand that command.";
+    return "I'm sorry, I didn't understand that command."
 };
 console.log(getReply("Hello my name is Benjamin")); // "Nice to meet you benjamin"
 console.log(getReply("What is my name?")); // "Your name is Benjamin"
@@ -106,4 +108,5 @@ console.log(getReply("Add reading a book to my todo")); // "reading a book added
 console.log(getReply("Add going for a walk to my todo"));   // "going for a walk added to your todo"
 console.log(getReply("Remove check all bills from my todo")); // "check all bills is not in your todo"
 console.log(getReply("What is on my todo?"));   // "You have 4 tasks on your todo: singing in the shower , cleaning the house , reading a book , going for a walk"\
+console.log(getReply("open google")); // "I'm sorry, I didn't understand that command."
 console.log(getReply("How is the weather today?")); // "I'm sorry, I didn't understand that command."

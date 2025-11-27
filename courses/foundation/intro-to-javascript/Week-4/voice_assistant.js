@@ -27,35 +27,7 @@ const months = [
 const secondsInMinute = 60;
 const millisecondsInSecond = 1000;
 const millisecondsInMinute = secondsInMinute * millisecondsInSecond;
-const getReply = (command) => {
-    if (command.startsWith("Hello my name is")) {
-        return getReplyUserName(command);
-    }
-    if (command === "What is my name?") {
-        return getUserName(userName);
-    }
-    if (command.startsWith("Add") && command.includes("to my todo")) {
-        return addToDo(command, todoList);
-    }
-    if (command.startsWith("Remove") && command.includes("from my todo")) {
-        return removeTask(command, todoList);
-    }
 
-    if (command === "What is on my todo?") {
-        return getTodoList(todoList);
-    }
-    if (command === "What day is it today?") {
-        return getTodayDetails(today, weekDays, months);
-    }
-    if (command.startsWith("what is")) {
-        return getOperationResult(command);
-    }
-
-    if (command.startsWith("Set a timer for") && command.includes("minutes")) {
-        return setTimer(command);
-    }
-    return "I'm sorry, I didn't understand that command.";
-};
 const getReplyUserName = (command) => {
     const name = command.replace("Hello my name is", "").trim();
     userName = name;
@@ -77,25 +49,25 @@ const addToDo = (command, todoList) => {
     return `${task} added to your todo`;
 };
 const removeTask = (command, todoList) => {
-    //what if you add task in lower case format like: 'remove from my todo'?
     const taskName = command
         .replace("Remove", "")
         .replace("from my todo", "")
         .trim();
-    if (todoList.indexOf(taskName) !== -1) {
-        todoList.splice(todoList.indexOf(taskName), 1);
-        return `${taskName} removed from your todo`;
+    const taskNameLower = taskName.toLowerCase();
+    if (todoList.indexOf(taskNameLower) !== -1) {
+        todoList.splice(todoList.indexOf(taskNameLower), 1);
+        return `${taskNameLower} removed from your todo`;
     } else {
         return `${taskName} is not in your todo`;
     }
 };
 const getTodoList = (todoList) => {
-    if (todoList.length) {
-        return `You have ${todoList.length} tasks on your todo : ${todoList.join(
-            ", "
-        )}`;
-    } else {
+    if (!todoList.length) {
         return "Your todo list is empty.";
+    } else {
+        return `You have ${todoList.length} tasks on your todo : ${todoList.join(
+            " , "
+        )}`;
     }
 };
 const getTodayDetails = (today, weekDays, months) => {
@@ -143,6 +115,39 @@ const setTimer = (command) => {
     }, timePart * millisecondsInMinute);
     return `Timer set for ${timePart} minutes`;
 };
+
+const getReply = (command) => {
+    if (command.startsWith("Hello my name is")) {
+        return getReplyUserName(command);
+    }
+    if (command === "What is my name?") {
+        return getUserName(userName);
+    }
+    if (command.startsWith("Add") && command.includes("to my todo")) {
+        command = command.toLowerCase();
+        return addToDo(command, todoList);
+    }
+    if (command.startsWith("Remove") && command.includes("from my todo")) {
+        command = command.toLowerCase();
+        return removeTask(command, todoList);
+    }
+
+    if (command === "What is on my todo?") {
+        return getTodoList(todoList);
+    }
+    if (command === "What day is it today?") {
+        return getTodayDetails(today, weekDays, months);
+    }
+    if (command.startsWith("what is")) {
+        return getOperationResult(command);
+    }
+
+    if (command.startsWith("Set a timer for") && command.includes("minutes")) {
+        return setTimer(command);
+    }
+    return "I'm sorry, I didn't understand that command.";
+};
+
 console.log(getReply("Hello my name is Benjamin")); // "Nice to meet you benjamin"
 console.log(getReply("What is my name?")); // "Your name is Benjamin"
 console.log(getReply("Add fishing to my todo")); // "fishing added to your todo"
@@ -153,10 +158,11 @@ console.log(getReply("What is on my todo?")); // "You have 2 tasks on your todo:
 console.log(getReply("What day is it today?")); // "Today is Monday, the 24th of November 2025"
 console.log(getReply("what is 3 + 3")); // "3 + 3 is 6"
 console.log(getReply("what is 4 * 12")); // "4 * 12 is 48"
-console.log(getReply("Set a timer for 4 minutes")); // "Timer set for 4 minutes"
+//console.log(getReply("Set a timer for 4 minutes")); // "Timer set for 4 minutes"
 console.log(getReply("Add reading a book to my todo")); // "reading a book added to your todo"
 console.log(getReply("Add going for a walk to my todo")); // "going for a walk added to your todo"
 console.log(getReply("Remove check all bills from my todo")); // "check all bills is not in your todo"
 console.log(getReply("What is on my todo?")); // "You have 4 tasks on your todo: singing in the shower , cleaning the house , reading a book , going for a walk"\
 console.log(getReply("open google")); // "I'm sorry, I didn't understand that command."
 console.log(getReply("How is the weather today?")); // "I'm sorry, I didn't understand that command."
+console.log(getReply("remove cleaning from my todo"));

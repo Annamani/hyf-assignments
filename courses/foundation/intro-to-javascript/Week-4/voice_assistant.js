@@ -49,14 +49,10 @@ const addToDo = (command, todoList) => {
     return `${task} added to your todo`;
 };
 const removeTask = (command, todoList) => {
-    const taskName = command
-        .replace("Remove", "")
-        .replace("from my todo", "")
-        .trim();
-    const taskNameLower = taskName.toLowerCase();
-    if (todoList.indexOf(taskNameLower) !== -1) {
-        todoList.splice(todoList.indexOf(taskNameLower), 1);
-        return `${taskNameLower} removed from your todo`;
+    const taskName = command.replace("remove", "").replace("from my todo", "").trim();
+    if (todoList.indexOf(taskName) !== -1) {
+        todoList.splice(todoList.indexOf(taskName), 1);
+        return `${taskName} removed from your todo`;
     } else {
         return `${taskName} is not in your todo`;
     }
@@ -117,32 +113,31 @@ const setTimer = (command) => {
 };
 
 const getReply = (command) => {
-    if (command.startsWith("Hello my name is")) {
+    const lowerCaseCommand = command.toLowerCase();
+    if (lowerCaseCommand.startsWith("hello my name is")) {
         return getReplyUserName(command);
     }
-    if (command === "What is my name?") {
+    if (lowerCaseCommand === "what is my name?") {
         return getUserName(userName);
     }
-    if (command.startsWith("Add") && command.includes("to my todo")) {
-        command = command.toLowerCase();
+    if (lowerCaseCommand.startsWith("add") && lowerCaseCommand.includes("to my todo")) {
         return addToDo(command, todoList);
     }
-    if (command.startsWith("Remove") && command.includes("from my todo")) {
-        command = command.toLowerCase();
+    if (lowerCaseCommand.startsWith("remove") && lowerCaseCommand.includes("from my todo")) {
         return removeTask(command, todoList);
     }
 
-    if (command === "What is on my todo?") {
+    if (lowerCaseCommand === "what is on my todo?") {
         return getTodoList(todoList);
     }
-    if (command === "What day is it today?") {
+    if (lowerCaseCommand === "what day is it today?") {
         return getTodayDetails(today, weekDays, months);
     }
-    if (command.startsWith("what is")) {
+    if (lowerCaseCommand.startsWith("what is")) {
         return getOperationResult(command);
     }
 
-    if (command.startsWith("Set a timer for") && command.includes("minutes")) {
+    if (lowerCaseCommand.startsWith("set a timer for") && lowerCaseCommand.includes("minutes")) {
         return setTimer(command);
     }
     return "I'm sorry, I didn't understand that command.";
@@ -165,4 +160,4 @@ console.log(getReply("Remove check all bills from my todo")); // "check all bill
 console.log(getReply("What is on my todo?")); // "You have 4 tasks on your todo: singing in the shower , cleaning the house , reading a book , going for a walk"\
 console.log(getReply("open google")); // "I'm sorry, I didn't understand that command."
 console.log(getReply("How is the weather today?")); // "I'm sorry, I didn't understand that command."
-console.log(getReply("remove cleaning from my todo"));
+console.log(getReply("remove cleaning the house from my todo"));

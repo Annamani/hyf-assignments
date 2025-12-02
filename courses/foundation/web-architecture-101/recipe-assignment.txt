@@ -1,0 +1,20 @@
+Identify the components:
+
+1.Where is the recipe data stored?
+->The recipe data will be stored in Database with recipe title,ingredients,cookingTime and instructions,recipe image.
+
+
+2.How does the frontend communicate with the backend?
+->Through HTTP requests such as POST,GET,PUT,DELETE to create,read,update and delete the recipe data.
+
+
+3.What happens when a user adds a new recipe?
+API Endpoints
+POST/recipe-1:
+->Create a new Recipe with title,ingredients,cooking time,instructions
+->Reads the incoming data for recipe
+->Logic - Create a variable,
+check that all fields are correct and valid
+->Save in database
+->Read from the database
+->Respond to client with the new data

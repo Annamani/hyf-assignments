@@ -8,7 +8,7 @@ const port = 3000;
 const knexInstance = knex({
   client: "sqlite3",
   connection: {
-    filename: "./database.sqlite3",
+    filename: "C:\\Users\\annam\\Documents\\Database\\tasks.sqlite3",
   },
   useNullAsDefault: true,  // Omit warning in console
 });
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 // Here is an example of the first route, /all-users, which returns all users sorted by their ID
 app.get("/all-users", async (req, res) => {
-  const rows = await knexInstance.raw("SELECT * FROM users ORDER BY id ASC;");
+  const rows = await knexInstance.raw("SELECT * FROM user ORDER BY id ASC;");
   res.json(rows);
 });
 

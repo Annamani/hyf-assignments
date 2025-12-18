@@ -12,6 +12,7 @@ const knexInstance = knex({
   client: "sqlite3",
   connection: {
     filename: "C:\\Users\\annam\\Documents\\Database\\database.sqlite3",
+
   },
   useNullAsDefault: true, // Omit warning in console
 });
@@ -112,7 +113,7 @@ app.get("/", (req, res) => {
     </section>
     <h2> To create a new user:</h2>
     <section class="create-user">
-        <form  action="/new-user" method="post">
+        <form  action="/user" method="post">
           <input class="new-user_input" type="text" name="first_name" placeholder="First Name" required />
           <input class="new-user_input" type="text" name="last_name" placeholder="Last Name" required />
           <input class="new-user_input" type="email" name="email" placeholder="Email" required />
@@ -184,7 +185,7 @@ app.get("/first-user", async (req, res) => {
   else res.status(404).send("No users found");
 });
 //create a new user
-app.post("/new-user", async (req, res) => {
+app.post("/user", async (req, res) => {
   const { first_name, last_name, email } = req.body;
 
   if (!first_name || !last_name || !email) {
@@ -203,7 +204,16 @@ app.post("/new-user", async (req, res) => {
   });
 });
 
-//
+// PATCH method partial modifications to a user
+app.patch("/user/:id", async (req, res) => {
+  const { id } = req.params;
+  const { first_name } = req.body;
+  const updatedUser = await knexInstance("users")
+    .where({ id })
+    .update({ first_name });
+  if (updatedUser) res.json(updatedUser);
+  else res.status(404).send("User not found");
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

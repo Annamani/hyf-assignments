@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Dashboard</title>
+    <style>
+        body {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            margin: 5px;
+        }
+
+        .view-dashboard {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #f48773ff;
+        }
+
+        .create-user {
+            display: flex;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .new-user_input {
+            width: 200px;
+            display: block;
+        }
+
+        .new-user_btn {
+            background-color: #4caf50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f49a9aff">
+    <section class="dashboard">
+        <h1>Welcome to the User API Dashboard</h1>
+        <p>Use the other endpoints to get user data.</p>
+        <p>Current user count: <span id="user-count"></span></p>
+        <div class="view-dashboard">
+            <form action="/all-users" method="get">
+                <button type="submit">View All Users</button>
+            </form>
+            <form action="/unconfirmed-users" method="get">
+                <button type="submit">View Unconfirmed Users</button>
+            </form>
+            <form action="/gmail-users" method="get">
+                <button type="submit">View Gmail Users</button>
+            </form>
+            <form action="/2022-users" method="get">
+                <button type="submit">View 2022 Users</button>
+            </form>
+            <form action="/user-count" method="get">
+                <button type="submit">User Count</button>
+            </form>
+            <form action="/first-user" method="get">
+                <button type="submit">First User</button>
+            </form>
+            <form action="/last-name-count" method="get">
+                <button type="submit">Get Last Name Count</button>
+            </form>
+            <!-- <form action="/updateuser/:id" method="get">
+                <button type="submit">Update User</button>
+            </form>
+            <form action="/deleteusers/:id" method="get">
+                <button type="submit">Delete User</button>
+            </form> -->
+        </div>
+    </section>
+    <h2>To create a new user:</h2>
+    <section class="create-user">
+        <form action="/user" method="post">
+            <input class="new-user_input" type="text" name="first_name" placeholder="First Name" required />
+            <input class="new-user_input" type="text" name="last_name" placeholder="Last Name" required />
+            <input class="new-user_input" type="email" name="email" placeholder="Email" required />
+            <button class="new-user_btn" type="submit">Create New User</button>
+        </form>
+    </section>
+</body>
+<script>
+    fetch("/user-count")
+        .then((response) => response.json())
+        .then((data) => {
+            document.getElementById("user-count").textContent = data[0].total_users;
+        });
+</script>
+
+</html>

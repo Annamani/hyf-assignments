@@ -88,7 +88,7 @@ app.patch("/users/:id", async (req, res) => {
 });
 
 //Delete a user by id
-app.delete("/users/:id", async (req, res) => {
+app.delete("/deleteusers/:id", async (req, res) => {
   const { id } = req.params;
   const deletedUser = await removeUser({ id });
   if (deletedUser) res.send(`User with ID: ${id} deleted successfully`);
@@ -136,12 +136,10 @@ const createUser = async (first_name, last_name, email) => {
   return user;
 }
 const updateUser = async (id, first_name, last_name, email) => {
-  const updatedUserDetails = await knexInstance("users")
-    .where({ id })
-    .update({ first_name, last_name, email });
+  const updatedUserDetails = await knexInstance.raw("update users set first_name=?, last_name=?, email=? where id=?", [first_name, last_name, email, id]);
   return updatedUserDetails;
 }
 const removeUser = async (id) => {
-  const deletedUser = await knexInstance("users").where({ id }).del();
+  const deletedUser = await knexInstance.raw("delete from users where id=?", [id]);
   return deletedUser;
 } 

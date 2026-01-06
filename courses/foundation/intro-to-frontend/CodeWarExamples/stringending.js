@@ -5,7 +5,7 @@ const stringList = [
 
 function solution(str, ending) {
     if (ending.length > str.length) {
-        return false;
+        return '';
     }
     return str.endsWith(ending);
 }

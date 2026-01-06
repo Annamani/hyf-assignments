@@ -1,0 +1,51 @@
+* {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+body {
+    background-color: #f0f8ff;
+    margin: 50px;
+}
+
+h1 {
+    color: #4b0082;
+}
+
+.intro-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+.userName {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #4b0082;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #4b0082;
+}
+
+.result-description {
+    font-size: 16px;
+    font-style: italic;
+    color: #333;
+    margin-top: 10px;
+}

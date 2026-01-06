@@ -5,7 +5,7 @@ const products = getAvailableProducts();
 console.log(products);
 
 function renderProducts(products) {
-  products.forEach(product => {
+  products.forEach((product) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
     <h2>${product.name}</h2>
@@ -16,4 +16,4 @@ function renderProducts(products) {
   });
 }
 
-renderProducts(products); 
+renderProducts(products);

@@ -21,6 +21,7 @@ function getUserHouse() {
     resultDescription.textContent = `${houseDescription}`;
     result.style.display = "block";
     result.style.marginTop = "20px";
+    generateBtn.textContent = "Try Again";
 }
 function getHouseDescription(house) {
     switch (house) {
@@ -38,4 +39,3 @@ function getHouseDescription(house) {
 }
 
 generateBtn.addEventListener("click", getUserHouse);
-tryAgainBtn.addEventListener("click", getUserHouse);

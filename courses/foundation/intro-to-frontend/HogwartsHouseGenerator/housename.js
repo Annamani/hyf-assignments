@@ -1,9 +1,8 @@
 const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"];
-const generateBtn = document.querySelector(".generatebtn");
-const tryAgainBtn = document.querySelector(".resetbtn");
+const generateBtn = document.querySelector("#primary-btn");
 const result = document.querySelector(".result");
 const resultDescription = document.querySelector(".result-description");
-const userNameInput = document.querySelector(".userName");
+const userNameInput = document.querySelector("#fullName");
 
 function getUserHouse() {
     const userName = userNameInput.value;

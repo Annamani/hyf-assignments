@@ -1,5 +1,7 @@
 Broccoli
 cauliflower
-lettuce
+Spinach
 carrots
 potatoes
+Pumpkin
+Zucchini

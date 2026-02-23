@@ -1,6 +1,7 @@
 Broccoli
 cauliflower
 Spinach
+Brussels sprouts
 carrots
 potatoes
 Pumpkin

@@ -1,107 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
-    <!--  Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@600&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annamani Kamma | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <header>
-    <h1>Annamani Kamma</h1>
-    <nav aria-label="Primary navigation">
-        <ul>
-            <li><a href="#introduction">Home</a></li>
-            <li><a href="#my-skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact-details">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-    <main id="main-content">
-        <section id="introduction" class="introduction">
-            <div class="profile-picture">
-                <img src="https://i.postimg.cc/DwtVfbNp/Ak.jpg" alt="Portrait of Annamani Kamma" width="200" height="250">
-            </div>
-            <div class="about-me">
-                <h2>About Me</h2>
-                <p>Hello! Welcome to my personal portfolio where I showcase my projects and skills.</p>
-                <p>
-                    I'm <strong><i>Annamani Kamma</i></strong>, a passionate developer and tester based in
-                    Copenhagen.
-
-                    I'm passionate about building elegant, responsive websites that create great user experiences.
-                    I specialize in HTML, CSS, and JavaScript, and I love transforming ideas into beautiful digital
-                    designs.
-                </p>
-            </div>
-        </section>
-        <section id="my-skills"class="my-skills">
-            <h3>My Skills</h3>
+    <header class="navbar">
+        <div class="logo">Annamani</div>
+        <nav>
             <ul>
-                <li>Web Development & Responsive Design</li>
-                <li>JavaScript Programming</li>
-                <li>Testing methodologies</li>
+                <li><a href="#introduction">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li ><a href="#languages">Languages</a></li>
+                <li><a href="#contact">Contact</a></li>
+               
             </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction" class="hero">
+            <img src="https://i.postimg.cc/DwtVfbNp/Ak.jpg" alt="Portrait of Annamani Kamma" class="profile-img" />
+            <h1>Annamani Kamma</h1>
+            <p class="subtitle">Junior Backend Developer • QA Engineer</p>
+            <p class="description">
+                Aspiring Backend Developer with 3 years of experience in software
+                testing and hands-on training in web development through
+                HackYourFuture. Skilled in building responsive front-end features and
+                developing backend APIs. Strong QA background ensures clean code and
+                reliable deliverables.
+            </p>
         </section>
-        <section id="projects" class="projects">
-            <h3>My Projects</h3>
-            <h4 class="project-title">Quiz Game</h4>
-            <div class="project-description">
-                <p>
-                    A fun and interactive quiz game built using HTML, CSS, and JavaScript.
-                    Test your knowledge on denmark related and challenge yourself with multiple-choice questions.
-                </p>
 
+        <section id="skills" class="skills-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">HTML, CSS, JavaScript</div>
+                <div class="skill-card">Responsive Web Design</div>
+                <div class="skill-card">Web Architecture</div>
+                <div class="skill-card">Node.js & Express</div>
+                <div class="skill-card">REST APIs & Testing</div>
+                <div class="skill-card">SQL </div>
+                <div class="skill-card">Agile & Scrum</div>
+                <div class="skill-card">QA Testing & Documentation</div>
+                <div class="skill-card">JIRA</div>
+                <div class="skill-card">Git & GitHub</div>
+                <div class="skill-card">Trello</div>
+                <div class="skill-card"> Basics of Python & Java </div>
             </div>
-            <h4 class="project-title">WaveRiders</h4>
-            <div class="project-description">
+            <h2>Soft Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">Team Collaboration</div>
+                <div class="skill-card">Time Management andAdaptability</div>
+                <div class="skill-card">Effective Communication</div>
+                <div class="skill-card">Problem Solving</div>
+                <div class="skill-card">Attention to Detail</div>
+            </div>
+        </section>
+        <section id="projects" class="projects-section">
+            <h2>Projects</h2>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Quiz Game</h3>
+                    <p>
+                        A Quiz Game built with HTML, CSS, and JavaScript featuring a
+                        welcome screen, timed questions, and dynamic scoring.
+                    </p>
+                    <div class="project-buttons">
+                        <a class="btn" href="https://annamani.github.io/Project--Quiz-Game" target="_blank"
+                            rel="noopener noreferrer">Live Demo</a>
+                        <a class="btn outline" href="https://github.com/Annamani/Project--Quiz-Game" target="_blank"
+                            rel="noopener noreferrer">Source Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>PairUp</h3>
+                    <p>
+                        PairUp randomly matches students with teachers using arrays,
+                        randomization, and DOM manipulation.
+                    </p>
+                    <div class="project-buttons">
+                        <a class="btn" href="https://annamani.github.io/Wave-Riders/" target="_blank"
+                            rel="noopener noreferrer">Live Demo</a>
+                        <a class="btn outline" href="https://github.com/Annamani/HYF-Assignment/tree/main/WaveRiders"
+                            target="_blank" rel="noopener noreferrer">Source Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Flip Card Game</h3>
+                    <p>
+                        A memory game with difficulty levels, built using HTML, CSS,
+                        JavaScript, Node.js, and SQLite. Tracks moves and time.
+                    </p>
+                    <div class="project-buttons">
+                        <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        <a class="btn outline" href="https://github.com/Annamani/Flip-Game" target="_blank"
+                            rel="noopener noreferrer">Source Code</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="languages" class="languages-section">
+            <h2>Languages</h2>
+            <div class="languages-grid">
+                <div class="language-card">English - Professional</div>
+                <div class="language-card">Telugu - Native</div>
+                <div class="language-card">Danish - Basic</div>
+                <div class="language-card">Hindi - Intermediate</div>
+            </div>
+        </section>
+        <section id="interests" class="interests-section">
+            <h2>Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">Traveling & Exploring new places</div>
+                <div class="interest-card">Cooking</div>
+                <div class="interest-card">Hiking</div>
+                <div class="interest-card">Volunteering in Church Activities</div>
+            </div>
+
+        <!-- <section class="color-change">
+        <button type="button" class="colorButton" id="colorButton">Change Background Color</button>
+    </section> -->
+
+        <section id="contact" class="contact-section">
+            <h2>Connect With Me</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/annamani_kamma/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/Annamani" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kamma-annamani/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="contact-info">
                 <p>
-                    A dynamic surfing-themed website that showcases surfing spots, tips, and gear reviews.
-                    Built with a focus on responsive design to ensure a great experience on all devices.
+                    Email:
+                    <a href="mailto:annamanik.vit@gmail.com">annamanik.vit@gmail.com</a>
                 </p>
             </div>
-            <ul>
-                <li>
-                    <a href="https://github.com/Annamani/Project--Quiz-Game">View Quiz Game</a>
-                </li>
-                <li>
-                    <a href="https://github.com/Annamani/HYF-Assignment/tree/main/WaveRiders">View WaveRiders </a>
-                </li>
-            </ul>
-        </section>
-        <section id="contact-details" class="contact-details">
-            <h3>Connect with Me</h3>
-            <a href="https://www.instagram.com/annamani_kamma/">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://github.com/Annamani">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/kamma-annamani/">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </section>
-        <section class="change-color">
-            <button type="button" class="colorButton">Change Background Color</button>
         </section>
     </main>
-    <footer class="copyright-section">
+    <footer>
         <p>&copy; <span id="year"></span> Annamani Kamma. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>

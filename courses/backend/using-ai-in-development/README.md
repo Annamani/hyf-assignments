@@ -29,6 +29,11 @@ using‑ai‑in‑development/          ← project root folder
 │
 └── script.js                    ← DOM‑manipulation / random color + year
 
+# Reflect on learnings
+- I didnt knew that ASCII diagram is nothing but our folder structure.
+- sometimes we focus on more technicality but ignore small things like empty spaces(it doesnt cause issue but still not good for readability)
+- learnt about accessibility 
+
 
 
     

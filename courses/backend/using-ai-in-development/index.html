@@ -1,161 +1,195 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Annamani Kamma | Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      crossorigin="anonymous"
+      integrity="sha512-9usAa3IW2lEnf3lGY6i7eogs/GUUGEoFwM4A4B8sDNC7eby5f6wBJ0dQyYNFObjDKSryS3P335gMNr2PIaGJg=="
+    />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-</head>
-
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="navbar">
-        <div class="logo">Annamani</div>
-        <nav>
-            <ul>
-                <li><a href="#introduction">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li ><a href="#languages">Languages</a></li>
-                <li><a href="#contact">Contact</a></li>
-               
-            </ul>
-        </nav>
+      <div class="logo">Annamani</div>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#introduction">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#languages">Languages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
-    <main>
-        <section id="introduction" class="hero">
-            <img src="https://i.postimg.cc/DwtVfbNp/Ak.jpg" alt="Portrait of Annamani Kamma" class="profile-img" />
-            <h1>Annamani Kamma</h1>
-            <p class="subtitle">Junior Backend Developer • QA Engineer</p>
+    <main id="main-content">
+      <section id="introduction" class="hero">
+        <div class="hero-content">
+          <img
+            src="https://i.postimg.cc/DwtVfbNp/Ak.jpg"
+            alt="Portrait of Annamani Kamma"
+            class="profile-img"
+          />
+          <div class="about-me">
+            <h1 class="name">Annamani Kamma</h1>
+            <p class="subtitle">Junior Backend Developer | QA Engineer</p>
             <p class="description">
-                Aspiring Backend Developer with 3 years of experience in software
-                testing and hands-on training in web development through
-                HackYourFuture. Skilled in building responsive front-end features and
-                developing backend APIs. Strong QA background ensures clean code and
-                reliable deliverables.
+              Aspiring Backend Developer with 3 years of software testing
+              experience and hands-on training through HackYourFuture. Skilled
+              in building responsive front-end features and backend APIs. Strong
+              QA background ensures clean code and reliable deliverables.
             </p>
-        </section>
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="skills-section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">HTML, CSS, JavaScript</div>
+          <div class="skill-card">Responsive Web Design</div>
+          <div class="skill-card">Web Architecture</div>
+          <div class="skill-card">Node.js & Express</div>
+          <div class="skill-card">REST APIs & Testing</div>
+          <div class="skill-card">SQL</div>
+          <div class="skill-card">Agile & Scrum</div>
+          <div class="skill-card">QA Testing & Documentation</div>
+          <div class="skill-card">JIRA</div>
+          <div class="skill-card">Git & GitHub</div>
+          <div class="skill-card">Trello</div>
+          <div class="skill-card">Basics of Python & Java</div>
+        </div>
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">Team Collaboration</div>
+          <div class="skill-card">Time Management & Adaptability</div>
+          <div class="skill-card">Effective Communication</div>
+          <div class="skill-card">Problem Solving</div>
+          <div class="skill-card">Attention to Detail</div>
+        </div>
+      </section>
+      <section id="projects" class="projects-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Quiz Game</h3>
+            <p>
+              A Quiz Game built with HTML, CSS, and JavaScript featuring a
+              welcome screen, timed questions, and dynamic scoring.
+            </p>
+            <div class="project-buttons">
+              <a
+                class="btn"
+                href="https://annamani.github.io/Project--Quiz-Game"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+              <a
+                class="btn outline"
+                href="https://github.com/Annamani/Project--Quiz-Game"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Source Code</a
+              >
+            </div>
+          </div>
 
-        <section id="skills" class="skills-section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">HTML, CSS, JavaScript</div>
-                <div class="skill-card">Responsive Web Design</div>
-                <div class="skill-card">Web Architecture</div>
-                <div class="skill-card">Node.js & Express</div>
-                <div class="skill-card">REST APIs & Testing</div>
-                <div class="skill-card">SQL </div>
-                <div class="skill-card">Agile & Scrum</div>
-                <div class="skill-card">QA Testing & Documentation</div>
-                <div class="skill-card">JIRA</div>
-                <div class="skill-card">Git & GitHub</div>
-                <div class="skill-card">Trello</div>
-                <div class="skill-card"> Basics of Python & Java </div>
+          <div class="project-card">
+            <h3>PairUp</h3>
+            <p>
+              PairUp randomly matches students with teachers using arrays,
+              randomization, and DOM manipulation.
+            </p>
+            <div class="project-buttons">
+              <a
+                class="btn"
+                href="https://annamani.github.io/Wave-Riders/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+              <a
+                class="btn outline"
+                href="https://github.com/Annamani/Wave-Riders"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Source Code</a
+              >
             </div>
-            <h2>Soft Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">Team Collaboration</div>
-                <div class="skill-card">Time Management andAdaptability</div>
-                <div class="skill-card">Effective Communication</div>
-                <div class="skill-card">Problem Solving</div>
-                <div class="skill-card">Attention to Detail</div>
+          </div>
+          <div class="project-card">
+            <h3>Flip Card Game</h3>
+            <p>
+              A memory game with difficulty levels, built using HTML, CSS,
+              JavaScript, Node.js, and SQLite.
+            </p>
+            <div class="project-buttons">
+              <a class="btn" href="#" target="_blank" rel="noopener noreferrer"
+                >Live Demo</a
+              >
+              <a
+                class="btn outline"
+                href="https://github.com/Annamani/Flip-Game"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Source Code</a
+              >
             </div>
-        </section>
-        <section id="projects" class="projects-section">
-            <h2>Projects</h2>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Quiz Game</h3>
-                    <p>
-                        A Quiz Game built with HTML, CSS, and JavaScript featuring a
-                        welcome screen, timed questions, and dynamic scoring.
-                    </p>
-                    <div class="project-buttons">
-                        <a class="btn" href="https://annamani.github.io/Project--Quiz-Game" target="_blank"
-                            rel="noopener noreferrer">Live Demo</a>
-                        <a class="btn outline" href="https://github.com/Annamani/Project--Quiz-Game" target="_blank"
-                            rel="noopener noreferrer">Source Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>PairUp</h3>
-                    <p>
-                        PairUp randomly matches students with teachers using arrays,
-                        randomization, and DOM manipulation.
-                    </p>
-                    <div class="project-buttons">
-                        <a class="btn" href="https://annamani.github.io/Wave-Riders/" target="_blank"
-                            rel="noopener noreferrer">Live Demo</a>
-                        <a class="btn outline" href="https://github.com/Annamani/HYF-Assignment/tree/main/WaveRiders"
-                            target="_blank" rel="noopener noreferrer">Source Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Flip Card Game</h3>
-                    <p>
-                        A memory game with difficulty levels, built using HTML, CSS,
-                        JavaScript, Node.js, and SQLite. Tracks moves and time.
-                    </p>
-                    <div class="project-buttons">
-                        <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                        <a class="btn outline" href="https://github.com/Annamani/Flip-Game" target="_blank"
-                            rel="noopener noreferrer">Source Code</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="languages" class="languages-section">
-            <h2>Languages</h2>
-            <div class="languages-grid">
-                <div class="language-card">English - Professional</div>
-                <div class="language-card">Telugu - Native</div>
-                <div class="language-card">Danish - Basic</div>
-                <div class="language-card">Hindi - Intermediate</div>
-            </div>
-        </section>
-        <section id="interests" class="interests-section">
-            <h2>Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-card">Traveling & Exploring new places</div>
-                <div class="interest-card">Cooking</div>
-                <div class="interest-card">Hiking</div>
-                <div class="interest-card">Volunteering in Church Activities</div>
-            </div>
-
-        <!-- <section class="color-change">
-        <button type="button" class="colorButton" id="colorButton">Change Background Color</button>
-    </section> -->
-
-        <section id="contact" class="contact-section">
-            <h2>Connect With Me</h2>
-            <div class="social-links">
-                <a href="https://www.instagram.com/annamani_kamma/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/Annamani" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kamma-annamani/" target="_blank" rel="noopener noreferrer"
-                    aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <div class="contact-info">
-                <p>
-                    Email:
-                    <a href="mailto:annamanik.vit@gmail.com">annamanik.vit@gmail.com</a>
-                </p>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
+      <section id="languages" class="languages-section">
+        <h2 class="section-title">Languages</h2>
+        <div class="languages-grid">
+          <div class="language-card">English — Professional</div>
+          <div class="language-card">Telugu — Native</div>
+          <div class="language-card">Danish — Basic</div>
+          <div class="language-card">Hindi — Intermediate</div>
+        </div>
+      </section>
+      <section id="interests" class="interests-section">
+        <h2 class="section-title">Interests</h2>
+        <div class="interests-grid">
+          <div class="interest-card">Traveling & Exploring</div>
+          <div class="interest-card">Cooking</div>
+          <div class="interest-card">Hiking</div>
+          <div class="interest-card">Volunteering</div>
+        </div>
+      </section>
+      <section id="contact" class="contact-section">
+        <h2 class="section-title">Connect With Me</h2>
+        <div class="social-links">
+          <a href="https://www.instagram.com/annamani_kamma/" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://github.com/Annamani" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://www.linkedin.com/in/kamma-annamani/" target="_blank"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+        <p class="contact-info">
+          Email:
+          <a href="mailto:annamanik.vit@gmail.com">annamanik.vit@gmail.com</a>
+        </p>
+      </section>
     </main>
     <footer>
-        <p>&copy; <span id="year"></span> Annamani Kamma. All rights reserved.</p>
+      <p>&copy; <span id="year"></span> Annamani Kamma. All rights reserved.</p>
     </footer>
-
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

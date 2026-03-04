@@ -1,14 +1,25 @@
-const changeColorBtn = document.getElementsByClassName("colorButton")[0];
-if(changeColorBtn){
-changeColorBtn.addEventListener("click", () => {
-  const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
-    document.body.style.background = "rgb(" + red + ", " + green + ", " + blue + ")";
-});
+const mobileMenu = document.querySelector(".mobile-menu");
+const navLinks = document.querySelector(".nav-links");
+
+if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+    });
+}
+
+if (navLinks) {
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            mobileMenu?.classList.remove("open");
+        });
+    });
 }
 
 // Set current year in footer
 const yearSpan = document.getElementById("year");
-const currentYear = new Date().getFullYear();
-yearSpan.textContent = currentYear;
+if (yearSpan) {
+    const currentYear = new Date().getFullYear();
+    yearSpan.textContent = currentYear;
+}

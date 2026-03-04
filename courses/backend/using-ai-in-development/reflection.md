@@ -4,7 +4,7 @@
 - Suggested changes in my footer section(remove hardcoded year in span tag)
 - Improvised by removing spaces and adding defensive check in scripts.js
 - Adding rel="noopener noreferrer" where target="_blank" is used.
-- Consider adding "Skip to main content" link for keyboard users
+- Suggested to add "Skip to main content" link for keyboard users
 
 # Note improvements & Implement the changes
 - I have added nav bar to my protfolio,updated footer section along with scripts file.

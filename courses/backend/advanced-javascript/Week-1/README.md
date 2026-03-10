@@ -24,3 +24,10 @@ This folder contains exercises focused on essential JavaScript methods used for 
 - Converts an object into an array of [key, value] pairs.
 - Useful when iterating through object properties.
 
+### 7.Set()
+- A JavaScript Set is a collection of unique values.
+- Each value can only occur once in a Set.
+- The values can be of any type, primitive values or objects.
+- Passing an array to new Set()
+- Create an empty set and use add() to add values
+

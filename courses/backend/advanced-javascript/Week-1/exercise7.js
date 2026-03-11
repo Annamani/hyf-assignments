@@ -1,5 +1,5 @@
 // Exercise 7: Count by Type (Optional)
-import {teas as data } from "../data/teas.js";
+import { teas as data } from "../data/teas.js";
 const countByType = data.reduce((counts, tea) => {
   counts[tea.type] = (counts[tea.type] || 0) + 1;
   return counts;

@@ -27,7 +27,28 @@ function validateOrder(order, callback){
     callback(result);
   }, 200);
 }
+// calculateTotal(order, callback);
+function calculateTotal(order, callback){
+ setTimeout(() => {
+   let totalPrice = 0;
+   order.items.forEach((item) => {
+     const tea = data.find((tea) => tea.id === item.teaId);
+     if (tea) {
+       totalPrice += tea.pricePerGram * item.grams;
+     }
+   });
+   const result = {
+     orderId: order.id,
+     total: totalPrice,
+   };
 
+   callback(result);
+ }, 300);
+}
 validateOrder(order, (result) => {
+  console.log("Validation result:", result);
+});
+
+calculateTotal(order, (result) => {
   console.log("Validation result:", result);
 });

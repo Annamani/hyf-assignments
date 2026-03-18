@@ -1,3 +1,4 @@
+// Exercise 5: Build runSequentially ⭐⭐
 function runSequentially(tasks, finalCallback) {
   function runTask(index) {
     if (index === tasks.length) return finalCallback();

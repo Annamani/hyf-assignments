@@ -45,6 +45,7 @@ function calculateTotal(order, callback) {
     callback(calculateTotalResult);
   }, 300);
 }
+// checkStock(order, callback);
 function checkStock(order, callback) {
   setTimeout(() => {
     const shortages = [];

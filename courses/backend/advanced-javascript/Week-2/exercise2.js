@@ -1,7 +1,7 @@
 import { teas as data } from "../data/teas.js";
 import fs from "fs";
 // Exercise 2: Order Processing System ⭐
-const order = {
+export const order = {
   id: 1001,
   customerId: 42,
   items: [
@@ -11,7 +11,7 @@ const order = {
   ],
 };
 //validateOrder(order, callback);
-function validateOrder(order, callback) {
+export function validateOrder(order, callback) {
   setTimeout(() => {
     const errors = [];
     order.items.forEach((item) => {
@@ -28,7 +28,7 @@ function validateOrder(order, callback) {
   }, 200);
 }
 // calculateTotal(order, callback);
-function calculateTotal(order, callback) {
+export function calculateTotal(order, callback) {
   setTimeout(() => {
     let totalPrice = 0;
     order.items.forEach((item) => {
@@ -46,7 +46,7 @@ function calculateTotal(order, callback) {
   }, 300);
 }
 // checkStock(order, callback);
-function checkStock(order, callback) {
+export function checkStock(order, callback) {
   setTimeout(() => {
     const shortages = [];
     let inStock = true;

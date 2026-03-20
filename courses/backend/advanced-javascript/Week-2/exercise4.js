@@ -7,14 +7,19 @@ function generateInventoryReport(callback) {
       callback(error, null);
       return;
     }
-    const order = JSON.parse(data);
+    let order;
+    try {
+      order = JSON.parse(data);
+    } catch (error) {
+      console.error("Failed to parse JSON:", error.message);
+      order = {};
+    }
     const calculateChanges = order.reduce((acc, teaData) => {
       acc[teaData.teaId] = (acc[teaData.teaId] || 0) + teaData.change;
       return acc;
     }, {});
-    const report = Object.keys(calculateChanges).map((id) => {
-      const tea = teas.find((t) => t.id === Number(id));
-      const change = calculateChanges[id] || 0;
+    const report = teas.map((tea) => {
+      const change = calculateChanges[tea.id] || 0;
       const newStockCount = tea.stockCount + change;
       const countSign = change >= 0 ? "+" : "";
       const stockValue = newStockCount < 0 ? " (NEGATIVE!)" : "";

@@ -21,7 +21,7 @@ function validateOrder(order, callback) {
       }
     });
     const validateOrderResult = {
-      valid: errors.length,
+      valid: errors.length === 0,
       errors: errors,
     };
     callback(validateOrderResult);

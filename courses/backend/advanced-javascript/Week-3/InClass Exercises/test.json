@@ -1,0 +1,12 @@
+{
+  "name": "Annamani Kamma",
+  "age": 30,
+  "email": "annamanik.vit@gmail.com",
+  "isActive": true,
+  "skills": ["JavaScript", "Node.js"],
+  "address": {
+    "street": "123 Main St",
+    "city": "Copenhagen",
+    "zip": "0000"
+  }
+}

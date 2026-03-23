@@ -11,7 +11,9 @@ async function getTeaWithStock(id) {
     );
   } catch (error) {
     console.error("Error:", error.message);
+    return null;
   }
 }
 
 getTeaWithStock(1);
+getTeaWithStock(999);

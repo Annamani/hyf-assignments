@@ -1,10 +1,18 @@
 // Exercise 5: Build runSequentially ⭐⭐
 function runSequentially(tasks, finalCallback) {
-  function runTask(index) {
-    if (index === tasks.length) return finalCallback();
-    tasks[index](() => runTask(index + 1));
-  }
-  runTask(0);
+  // function runTask(index) {
+  //   if (index === tasks.length) return finalCallback();
+  //   tasks[index](() => runTask(index + 1));
+  // }
+  // runTask(0);
+  //   const done0 = () => tasks[2](finalCallback);
+  //   const done1 = () => tasks[1](done0);
+  //   const done2 = () => tasks[0](done1);
+  // done2();
+  const final = tasks.reduceRight((carry, f) => {
+    return () => f(carry);
+  }, finalCallback);
+  final();
 }
 const tasks = [
   (done) =>

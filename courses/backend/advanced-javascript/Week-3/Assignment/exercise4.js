@@ -7,7 +7,7 @@ async function checkOrderStock(items) {
     );
     items.forEach((item) => {
       const checkStock = inventory.find((t) => t.teaId === item.teaId);
-      if (checkStock) {
+      if (checkStock && checkStock.stockCount < item.grams) {
         shortages.push({
           teaId: item.teaId,
           name: `Tea ID ${item.teaId}`,

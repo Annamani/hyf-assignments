@@ -11,6 +11,7 @@ async function calculateOrderTotal(items) {
     }, 0);
   } catch (error) {
     console.log(error.message);
+    throw error;
   }
 }
 const order = [

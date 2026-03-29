@@ -1,5 +1,4 @@
 import { teas } from "../../data/teas.js";
-let total;
 class Tea {
   constructor(name, type, origin, pricePerGram, organic) {
     this.name = name;
@@ -23,15 +22,28 @@ class Order {
     this.items = [];
     this.tea = tea;
     this.grams = grams;
+    this.status = "pending";
   }
+
   addItem(orderItem) {
     if (!this.items.includes(orderItem)) return this.items.push(orderItem);
     else throw new Error("error while pushing data");
   }
+
   getTotal() {
     return this.items.reduce((total, item) => {
       return total + item.getTotal();
     }, 0);
+  }
+
+  getSummary() {
+    const orderStatus = `Order (${this.status}) - ${this.items.length} items`;
+
+    const lines = this.items.map((item) => {
+      return `- ${item.grams}g ${item.tea.name} - ${item.getTotal().toFixed(2)} DKK`;
+    });
+    const total = `Total: ${this.getTotal().toFixed(2)} DKK`;
+    return [orderStatus, ...lines, total].join("\n");
   }
 }
 const order = new Order();
@@ -43,3 +55,4 @@ order.addItem(
 );
 
 console.log(order.getTotal()); // 34.5  (12 + 22.5)
+console.log(order.getSummary());

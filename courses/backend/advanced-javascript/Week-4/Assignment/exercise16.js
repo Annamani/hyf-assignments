@@ -42,7 +42,6 @@ class Tea {
     return total / teas.length;
   }
 }
-
 const teaInstances = teas.map(Tea.fromObject);
 console.log(Tea.findCheapest(teaInstances).name);
 // "English Breakfast"

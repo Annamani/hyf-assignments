@@ -1,6 +1,6 @@
 import { teas } from "../../data/teas.js";
 const typeofTeas = ["green", "black", "herbal", "oolong", "white"];
-class Tea {
+export class Tea {
   constructor(name, type, origin, pricePerGram, organic) {
     if (!name) {
       throw new Error("Name is required");

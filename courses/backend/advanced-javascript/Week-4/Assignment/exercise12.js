@@ -1,13 +1,5 @@
 import { teas } from "../../data/teas.js";
-class Tea {
-  constructor(name, type, origin, pricePerGram, organic) {
-    this.name = name;
-    this.type = type;
-    this.origin = origin;
-    this.pricePerGram = pricePerGram;
-    this.organic = organic;
-  }
-}
+import { Tea } from "./exercise1.js";
 class TeaCatalog {
   constructor(teas) {
     this.teas = teas;

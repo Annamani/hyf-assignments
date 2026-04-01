@@ -1,5 +1,4 @@
 import { teas } from "../../data/teas.js";
-let total;
 class Tea {
   constructor(name, type, origin, pricePerGram, organic) {
     this.name = name;

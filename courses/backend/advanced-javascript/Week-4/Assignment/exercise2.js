@@ -1,42 +1,22 @@
 import { teas } from "../../data/teas.js";
-class Tea {
-  constructor(name, type, origin, pricePerGram, organic) {
-    this.name = name;
-    this.type = type;
-    this.origin = origin;
-    this.pricePerGram = pricePerGram;
-    this.organic = organic;
-  }
-  priceFor(grams) {
-    return this.pricePerGram * grams;
-  }
-  static fromObject(obj) {
-    return new Tea(
-      obj.name,
-      obj.type,
-      obj.origin,
-      obj.pricePerGram,
-      obj.organic,
-    );
-  }
-}
-class OrderItem {
+import { Tea } from "./exercise1.js";
+export class OrderItem {
   constructor(tea, grams) {
     this.tea = tea;
     this.grams = grams;
   }
 
   lineTotal() {
-    return this.tea.pricePerGram * this.grams;
+    return this.tea.priceFor(this.grams);
   }
 
   describe() {
-    const price = this.tea.pricePerGram * this.grams;
-    return `${this.grams}g ${this.tea.name} - ${price.toFixed(2)} DKK`;
+    const price = this.tea.priceFor(this.grams);
+    return `${this.grams}g ${this.tea.name} - ${Number(price).toFixed(2)} DKK`;
   }
 }
 
-class Order {
+export class Order {
   constructor() {
     this.items = [];
     this.status = "pending";

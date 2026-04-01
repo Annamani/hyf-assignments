@@ -1,38 +1,6 @@
 import { teas } from "../../data/teas.js";
-class Tea {
-  constructor(name, type, origin, pricePerGram, organic) {
-    this.name = name;
-    this.type = type;
-    this.origin = origin;
-    this.pricePerGram = pricePerGram;
-    this.organic = organic;
-  }
-}
-class OrderItem {
-  constructor(tea, grams) {
-    this.tea = tea;
-    this.grams = grams;
-  }
-  getTotal() {
-    return this.tea.pricePerGram * this.grams;
-  }
-}
-class Order {
-  constructor(tea, grams) {
-    this.items = [];
-    this.tea = tea;
-    this.grams = grams;
-  }
-  addItem(orderItem) {
-    if (!this.items.includes(orderItem)) return this.items.push(orderItem);
-    else throw new Error("error while pushing data");
-  }
-  getTotal() {
-    return this.items.reduce((total, item) => {
-      return total + item.getTotal();
-    }, 0);
-  }
-}
+import { Tea } from "./exercise1.js";
+import { Order, OrderItem } from "./exercise2.js";
 class Customer {
   constructor(name, email) {
     this.name = name;

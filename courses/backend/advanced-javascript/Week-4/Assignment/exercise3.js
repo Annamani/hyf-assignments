@@ -1,26 +1,6 @@
 import { teas } from "../../data/teas.js";
-class Tea {
-  constructor(name, type, origin, pricePerGram, organic) {
-    this.name = name;
-    this.type = type;
-    this.origin = origin;
-    this.pricePerGram = pricePerGram;
-    this.organic = organic;
-  }
-  priceFor(grams) {
-    return this.pricePerGram * grams;
-  }
-  static fromObject(obj) {
-    return new Tea(
-      obj.name,
-      obj.type,
-      obj.origin,
-      obj.pricePerGram,
-      obj.organic,
-    );
-  }
-}
-class Inventory {
+import { Tea } from "./exercise1.js";
+export class Inventory {
   constructor() {
     this.items = new Map();
   }

@@ -1,70 +1,7 @@
 import { teas } from "../../data/teas.js";
-class Tea {
-  constructor(name, type, origin, pricePerGram, organic) {
-    this.name = name;
-    this.type = type;
-    this.origin = origin;
-    this.pricePerGram = pricePerGram;
-    this.organic = organic;
-  }
+import { Tea } from "./exercise1.js";
+import { Order, OrderItem } from "./exercise2.js";
 
-  priceFor(grams) {
-    return this.pricePerGram * grams;
-  }
-
-  describe() {
-    return `${this.name} (${this.type}) from ${this.origin} - ${(this.pricePerGram * 100).toFixed(2)} DKK/100g`;
-  }
-
-  static fromObject(obj) {
-    return new Tea(
-      obj.name,
-      obj.type,
-      obj.origin,
-      obj.pricePerGram,
-      obj.organic,
-    );
-  }
-}
-class OrderItem {
-  constructor(tea, grams) {
-    this.tea = tea;
-    this.grams = grams;
-  }
-
-  lineTotal() {
-    return this.tea.priceFor(this.grams);
-  }
-
-  describe() {
-    const price = this.tea.priceFor(this.grams);
-    return `${this.grams}g ${this.tea.name} - ${Number(price).toFixed(2)} DKK`;
-  }
-}
-
-class Order {
-  constructor() {
-    this.items = [];
-    this.status = "confirmed";
-  }
-
-  addItem(orderItem) {
-    if (!this.items.includes(orderItem)) return this.items.push(orderItem);
-    else throw new Error("error while pushing data");
-  }
-
-  getTotal() {
-    return this.items.reduce((total, item) => {
-      return total + item.lineTotal();
-    }, 0);
-  }
-  getSummary() {
-    const header = `Order  ${this.status} - ${this.items.length} items`;
-    const lines = this.items.map((item) => `  ${item.describe()}`);
-    const totalLine = `Total: ${this.getTotal().toFixed(2)} DKK`;
-    return [header, ...lines, totalLine].join("\n");
-  }
-}
 class PremiumTea extends Tea {
   constructor(name, type, origin, pricePerGram, organic, grade) {
     super(name, type, origin, pricePerGram, organic);

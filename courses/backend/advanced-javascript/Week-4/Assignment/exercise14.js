@@ -40,10 +40,18 @@ class Order {
     this.items = [];
     this.tea = tea;
     this.grams = grams;
+    this.status = "pending";
   }
   addItem(orderItem) {
-    if (!this.items.includes(orderItem)) return this.items.push(orderItem);
-    else throw new Error("error while pushing data");
+    if (this.status !== "pending") {
+      throw new Error("Cannot add items unless order is pending");
+    }
+
+    if (!this.items.includes(orderItem)) {
+      this.items.push(orderItem);
+    } else {
+      throw new Error("Item already exists in order");
+    }
   }
   getTotal() {
     return this.items.reduce((total, item) => {

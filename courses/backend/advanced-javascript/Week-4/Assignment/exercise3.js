@@ -16,6 +16,9 @@ export class Inventory {
     if (!item) throw new Error(`${teaName} is not found`);
     if (item.stockCount < grams)
       throw new Error(`${teaName} is not enough stock`);
+    if (typeof grams !== "number" || grams <= 0) {
+      throw new Error("Grams must be a positive number");
+    }
     item.stockCount -= grams;
   }
   restock(teaName, grams) {

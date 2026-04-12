@@ -5,6 +5,9 @@ import { Order, OrderItem } from "./exercise2.js";
 class PremiumTea extends Tea {
   constructor(name, type, origin, pricePerGram, organic, grade) {
     super(name, type, origin, pricePerGram, organic);
+    if (!["A", "B", "C"].includes(grade)) {
+      throw new Error("Invalid grade");
+    }
     this.grade = grade;
   }
 

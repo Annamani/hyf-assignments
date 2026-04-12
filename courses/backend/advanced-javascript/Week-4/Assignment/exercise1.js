@@ -8,8 +8,8 @@ export class Tea {
       throw new Error(`Invalid type: ${type}`);
     } else if (!origin) {
       throw new Error("Origin is not defined");
-    } else if (pricePerGram < 0) {
-      throw new Error("Price must be positive");
+    } else if (typeof pricePerGram !== "number" || pricePerGram <= 0) {
+      throw new Error("Price must be a positive number");
     } else {
       this.name = name;
       this.type = type;

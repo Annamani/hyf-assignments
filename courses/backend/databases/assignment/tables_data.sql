@@ -33,56 +33,47 @@ task_id INTEGER PRIMARY KEY AUTOINCREMENT,
 
 SELECT * FROM task;
 -- Tasks
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Wash clothes', 'Title says it all.', '2017-10-25 06:54:16', '2017-10-15 13:05:09', null, 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Become a billionaire', 'This should not take long, just invent a time machine, travel back to 2010 and buy bitcoin', '2017-09-26 03:06:46', '2017-10-08 06:14:31', '2017-12-22 20:58:03', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Plan meeting with London office', 'We will probably use skype', '2017-10-04 18:07:37', '2017-10-14 16:01:31', '2017-12-05 19:42:15', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Order groceries online', 'The fridge is almost empty, we need eggs and milk', '2017-09-20 19:34:43', '2017-10-15 23:35:45', '2017-12-24 16:00:46', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Empty the mailbox', NULL, '2017-09-27 15:17:08', '2017-10-08 17:31:16', null, 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Fix the flat tire on the bike', 'Tools are in the garage', '2017-09-13 23:16:30', '2017-10-06 04:03:52', '2017-12-07 11:51:11', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Wash the car', NULL, '2017-10-06 19:39:16', '2017-10-03 04:49:05', '2017-12-04 17:43:16', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Walk the dog', NULL, '2017-09-03 02:47:17', '2017-10-12 18:40:08', null, 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Write a book', 'Maybe something about dragons?', '2017-10-11 06:14:01', '2017-10-17 12:19:08', '2017-12-21 20:18:05', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Do HackYourFuture assignment', NULL, '2017-10-04 13:55:16', '2017-10-10 00:18:05', '2017-12-19 17:01:10', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Iron shirts', NULL, '2017-09-23 03:59:58', '2017-10-19 08:30:48', '2017-12-08 11:00:35', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Water the potted plants', 'Maybe they need fertilizer as well', '2017-09-29 23:38:42', '2017-10-08 04:24:53', null, 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Buy wine for the birthday party', 'Both red and white wine', '2017-10-10 14:57:22', '2017-10-14 14:03:30', '2017-12-10 23:43:56', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Buy gift for Paul', 'He could use a shirt or a tie and some socks', '2017-09-09 05:22:08', '2017-10-17 15:58:05', '2017-12-04 20:45:18', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Change lightbulb in hallway', 'Should be an LED bulb', '2017-10-01 19:07:35', '2017-10-03 10:02:27', '2017-12-08 17:09:03', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Wash windows', NULL, '2017-10-02 22:15:17', '2017-10-07 22:31:35', '2017-12-06 03:36:09', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Setup salary databases for accounting', 'Use MySQL', '2017-10-25 05:35:33', '2017-10-10 23:22:33', '2017-12-05 00:19:08', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Learn how databases work', NULL, '2017-09-06 03:16:47', '2017-10-10 16:56:58', '2017-12-18 05:08:05', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Make the databases perform better', 'It should be possible to optimize the indexes', '2017-10-03 09:27:20', '2017-10-01 16:27:46', '2017-12-01 13:28:35', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Buy beer for the company party', '2 or 3 cases should be enough', '2017-10-08 01:39:02', '2017-10-13 23:07:41', null, 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Knit sweater', NULL, '2017-09-22 17:14:55', '2017-10-08 09:01:35', '2017-12-15 20:33:57', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Charge electric bicycle', 'It sucks to ride it without a battery!', '2017-10-10 12:25:07', '2017-10-07 21:45:01', '2017-12-10 19:02:17', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Buy new phone', 'The battery in the current one only lasts 5 hours 😞', '2017-09-17 00:25:34', '2017-10-09 11:48:12', null, 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Ride bike around Sjælland', 'Remember rainclothes and tire repair kit!', '2017-10-20 19:21:13', '2017-10-07 01:38:06', '2017-12-19 15:08:18', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Look at apartments in Ørestad', '2 or 3 rooms', '2017-10-30 09:47:00', '2017-10-19 06:11:26', null, 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Empty Mr Fluffy''s litterbox', NULL, '2017-09-28 03:09:06', '2017-10-13 10:38:34', '2017-12-20 23:37:18', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Buy new dining room table and chairs', 'Ikea has some on sale', '2017-09-21 12:02:34', '2017-10-02 02:05:11', '2017-12-06 00:14:30', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Renew buscard', '3 zones', '2017-10-07 22:47:51', '2017-10-09 15:50:03', '2017-12-01 14:25:40', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Sign up for linkedin', 'Make the CV awesome! 😄', '2017-09-04 00:57:47', '2017-10-18 18:07:48', '2017-12-07 23:04:38', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Remove facebook from phone', 'To avoid interruptions when working', '2017-10-26 17:15:07', '2017-10-13 03:36:47', '2017-12-19 11:10:02', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Backup databases to external disk', 'Remember to store the disk in another physical location', '2017-09-09 17:32:33', '2017-10-01 21:18:59', '2017-12-23 14:21:01', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Put up the new lamp in the hallway', NULL, '2017-10-15 05:45:54', '2017-10-16 14:05:35', '2017-12-29 02:29:26', 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Hang up paintings in living room', NULL, '2017-09-10 05:36:11', '2017-10-09 17:40:42', null, 3);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Buy plane ticket to Auckland', 'Check prices online first!', '2017-09-05 09:07:22', '2017-10-15 09:36:06', '2017-12-07 11:10:05', 1);
-INSERT INTO task (title, description, created, updated, due_date, status_id) VALUES ('Learn about NoSQL databases', 'MongoDB, CouchDB, etc.', '2017-10-20 01:41:53', '2017-10-04 07:19:56', '2017-12-23 10:13:42', 2);
-INSERT INTO task (title, description, created, updated, due_date, status_id)
-VALUES ('Study SQL Queries', 'Practice writing SQL queries for data retrieval',
-        '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-02', 3);
-
-INSERT INTO task (title, description, created, updated, due_date, status_id)
-VALUES ('Learn Database Design', 'Study ER modeling and normalization',
-        '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-10', 1);
-
-INSERT INTO task (title, description, created, updated, due_date, status_id)
-VALUES ('Write Unit Tests', 'Add test coverage for user authentication',
-        '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-05', 1);
-
-INSERT INTO task (title, description, created, updated, due_date, status_id)
-VALUES ('Deploy Application', 'Set up production environment',
-        '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-20', 1);
+INSERT INTO task (title, description, created, updated, due_date, status)
+VALUES
+('Wash clothes', 'Title says it all.', '2017-10-25 06:54:16', '2017-10-15 13:05:09', NULL, 'In progress'),
+('Become a billionaire', 'This should not take long, just invent a time machine, travel back to 2010 and buy bitcoin', '2017-09-26 03:06:46', '2017-10-08 06:14:31', '2017-12-22 20:58:03', 'Done'),
+('Plan meeting with London office', 'We will probably use skype', '2017-10-04 18:07:37', '2017-10-14 16:01:31', '2017-12-05 19:42:15', 'In progress'),
+('Order groceries online', 'The fridge is almost empty, we need eggs and milk', '2017-09-20 19:34:43', '2017-10-15 23:35:45', '2017-12-24 16:00:46', 'Not started'),
+('Empty the mailbox', NULL, '2017-09-27 15:17:08', '2017-10-08 17:31:16', NULL, 'In progress'),
+('Fix the flat tire on the bike', 'Tools are in the garage', '2017-09-13 23:16:30', '2017-10-06 04:03:52', '2017-12-07 11:51:11', 'In progress'),
+('Wash the car', NULL, '2017-10-06 19:39:16', '2017-10-03 04:49:05', '2017-12-04 17:43:16', 'In progress'),
+('Walk the dog', NULL, '2017-09-03 02:47:17', '2017-10-12 18:40:08', NULL, 'Done'),
+('Write a book', 'Maybe something about dragons?', '2017-10-11 06:14:01', '2017-10-17 12:19:08', '2017-12-21 20:18:05', 'In progress'),
+('Do HackYourFuture assignment', NULL, '2017-10-04 13:55:16', '2017-10-10 00:18:05', '2017-12-19 17:01:10', 'Not started'),
+('Iron shirts', NULL, '2017-09-23 03:59:58', '2017-10-19 08:30:48', '2017-12-08 11:00:35', 'Done'),
+('Water the potted plants', 'Maybe they need fertilizer as well', '2017-09-29 23:38:42', '2017-10-08 04:24:53', NULL, 'In progress'),
+('Buy wine for the birthday party', 'Both red and white wine', '2017-10-10 14:57:22', '2017-10-14 14:03:30', '2017-12-10 23:43:56', 'In progress'),
+('Buy gift for Paul', 'He could use a shirt or a tie and some socks', '2017-09-09 05:22:08', '2017-10-17 15:58:05', '2017-12-04 20:45:18', 'Done'),
+('Change lightbulb in hallway', 'Should be an LED bulb', '2017-10-01 19:07:35', '2017-10-03 10:02:27', '2017-12-08 17:09:03', 'Done'),
+('Wash windows', NULL, '2017-10-02 22:15:17', '2017-10-07 22:31:35', '2017-12-06 03:36:09', 'In progress'),
+('Setup salary databases for accounting', 'Use MySQL', '2017-10-25 05:35:33', '2017-10-10 23:22:33', '2017-12-05 00:19:08', 'Not started'),
+('Learn how databases work', NULL, '2017-09-06 03:16:47', '2017-10-10 16:56:58', '2017-12-18 05:08:05', 'Done'),
+('Make the databases perform better', 'It should be possible to optimize the indexes', '2017-10-03 09:27:20', '2017-10-01 16:27:46', '2017-12-01 13:28:35', 'In progress'),
+('Buy beer for the company party', '2 or 3 cases should be enough', '2017-10-08 01:39:02', '2017-10-13 23:07:41', NULL, 'Done'),
+('Knit sweater', NULL, '2017-09-22 17:14:55', '2017-10-08 09:01:35', '2017-12-15 20:33:57', 'In progress'),
+('Charge electric bicycle', 'It sucks to ride it without a battery!', '2017-10-10 12:25:07', '2017-10-07 21:45:01', '2017-12-10 19:02:17', 'Not started'),
+('Buy new phone', 'The battery in the current one only lasts 5 hours 😞', '2017-09-17 00:25:34', '2017-10-09 11:48:12', NULL, 'Done'),
+('Ride bike around Sjælland', 'Remember rainclothes and tire repair kit!', '2017-10-20 19:21:13', '2017-10-07 01:38:06', '2017-12-19 15:08:18', 'In progress'),
+('Look at apartments in Ørestad', '2 or 3 rooms', '2017-10-30 09:47:00', '2017-10-19 06:11:26', NULL, 'Not started'),
+('Empty Mr Fluffy''s litterbox', NULL, '2017-09-28 03:09:06', '2017-10-13 10:38:34', '2017-12-20 23:37:18', 'In progress'),
+('Buy new dining room table and chairs', 'Ikea has some on sale', '2017-09-21 12:02:34', '2017-10-02 02:05:11', '2017-12-06 00:14:30', 'Not started'),
+('Renew buscard', '3 zones', '2017-10-07 22:47:51', '2017-10-09 15:50:03', '2017-12-01 14:25:40', 'In progress'),
+('Sign up for linkedin', 'Make the CV awesome! 😄', '2017-09-04 00:57:47', '2017-10-18 18:07:48', '2017-12-07 23:04:38', 'Done'),
+('Remove facebook from phone', 'To avoid interruptions when working', '2017-10-26 17:15:07', '2017-10-13 03:36:47', '2017-12-19 11:10:02', 'Done'),
+('Backup databases to external disk', 'Remember to store the disk in another physical location', '2017-09-09 17:32:33', '2017-10-01 21:18:59', '2017-12-23 14:21:01', 'Not started'),
+('Put up the new lamp in the hallway', NULL, '2017-10-15 05:45:54', '2017-10-16 14:05:35', '2017-12-29 02:29:26', 'Done'),
+('Hang up paintings in living room', NULL, '2017-09-10 05:36:11', '2017-10-09 17:40:42', NULL, 'Done'),
+('Buy plane ticket to Auckland', 'Check prices online first!', '2017-09-05 09:07:22', '2017-10-15 09:36:06', '2017-12-07 11:10:05', 'Not started'),
+('Learn about NoSQL databases', 'MongoDB, CouchDB, etc.', '2017-10-20 01:41:53', '2017-10-04 07:19:56', '2017-12-23 10:13:42', 'In progress'),
+('Study SQL Queries', 'Practice writing SQL queries for data retrieval', '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-02', 'Done'),
+('Learn Database Design', 'Study ER modeling and normalization', '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-10', 'Not started'),
+('Write Unit Tests', 'Add test coverage for user authentication', '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-05', 'Not started'),
+('Deploy Application', 'Set up production environment', '2026-04-12 15:16:00', '2026-04-12 15:16:00', '2025-08-20', 'Not started');
 
 CREATE TABLE status (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

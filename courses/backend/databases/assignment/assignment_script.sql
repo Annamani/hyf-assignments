@@ -19,7 +19,7 @@ update task set title="Master SQL Basics" where title="Learn SQL";
 update task set due_date=DATE('now', '+14 days') where title="Master SQL Basics";
 
 --Change the status of your task to "Done"
-UPDATE task SET status_id = 3 WHERE title = "Master SQL Basics";
+UPDATE task SET status_id = 3 WHERE title = 'Master SQL Basics';
 
 --Delete one of the tasks in the database (choose any task)
 DELETE FROM task WHERE task_id = 4;
@@ -35,7 +35,7 @@ where ut.task_Id IS NULL;
 --Find all tasks with a status of "Done"
 select t.title,s.name as status from task t
 left join status s on s.id=t.status_id
-where s.name="Done";
+where s.name='Done';
 
 
 --Find all overdue tasks (due_date is earlier than today)

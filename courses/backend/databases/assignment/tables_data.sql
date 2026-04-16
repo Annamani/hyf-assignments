@@ -102,7 +102,7 @@ user_Id INTEGER NOT NULL,
 task_Id INTEGER NOT NULL,
 PRIMARY KEY(user_Id,task_Id),
 FOREIGN KEY (user_Id)  REFERENCES user(user_Id) on DELETE CASCADE on update CASCADE,
-FOREIGN KEY (task_Id)  REFERENCES user(task_id) on DELETE CASCADE on update CASCADE
+FOREIGN KEY (task_Id)  REFERENCES task(task_id) on DELETE CASCADE on update CASCADE
 );
 
 insert into user_task (user_Id,task_Id) values(1,1);

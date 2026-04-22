@@ -71,7 +71,7 @@ Problems:
 2.This is a classic SQL injection attack.
 
 -- Part B 
---Write the malicious string that an attacker could use to delete all tasks from the database.
+-- Write the malicious string that an attacker could use to delete all tasks from the database.
 --'; DELETE FROM task; --
 DELETE from task.. ;
 DELETE FROM task removes ALL rows from the task table
@@ -124,11 +124,13 @@ rollback;
 --Part 4, Q1
 --Transaction: create "Urgent" + assign tasks
 BEGIN TRANSACTION;
+
 INSERT OR ROLLBACK INTO category (name) VALUES ('Urgent');
 INSERT INTO task_category (task_id, category_id) 
 SELECT id, (SELECT id FROM category WHERE name = 'Urgent')
 FROM task
 WHERE user_id = 1;
+
 COMMIT;
 
 -- Part 4, Q2

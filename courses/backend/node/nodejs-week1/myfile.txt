@@ -1,5 +1,0 @@
-hello people this is myfile.txt content 
-Adding new line for my own file
-'annamani' said: 'hello from me and writing from POSTMAN!!'
-'annamani' said: 'hello from me and writing from POSTMAN!!'
-'annamani' said: 'hello from me and writing from POSTMAN!!'

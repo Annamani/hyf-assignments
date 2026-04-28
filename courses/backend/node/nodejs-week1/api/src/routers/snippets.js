@@ -46,4 +46,36 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+// /api/snippets/:id- PUT- Updates the snippet by id
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedRows = await knex("snippets")
+      .where({ id: req.params.id })
+      .update(req.body);
+    if (!updatedRows) {
+      return res.status(404).json({ error: "Snippet not found" });
+    }
+    const updatedSnippet = await knex("snippets")
+      .where({ id: req.params.id })
+      .first();
+    res.status(200).json(updatedSnippet);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+///api/snippets/:id - DELETE -Deletes the snippet by id
+router.delete("/:id", async (req, res) => {
+  try {
+    const deleted = await knex("snippets").where({ id: req.params.id }).del();
+    if (!deleted) {
+      return res.status(404).json({ error: "Snippet not found" });
+    }
+    res.status(200).json({
+      message: "Snippet deleted successfully",
+      deletedId: req.params.id,
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 export default router;

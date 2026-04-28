@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-///api/snippets-POST-Adds a new snippet to the database
+// /api/snippets-POST-Adds a new snippet to the database
 router.post("/", async (req, res) => {
   try {
     const { title, contents, user_id } = req.body;
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-///api/snippets/:id-GET-Returns the snippet by id
+// /api/snippets/:id-GET-Returns the snippet by id
 router.get("/:id", async (req, res) => {
   try {
     const snippetById = await knex("snippets")

@@ -7,11 +7,6 @@
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon api/index.js",
-    "migrate": "knex --knexfile ./api/db/knexfile.js migrate:latest",
-    "rollback": "knex --knexfile ./api/db/knexfile.js migrate:rollback",
-    "seed": "knex --knexfile ./api/db/knexfile.js seed:run",
-    "migrate:make": "knex --knexfile ./api/db/knexfile.js migrate:make",
-    "seed:make": "knex --knexfile ./api/db/knexfile.js seed:make",
     "db:reset": "npm run rollback && npm run migrate && npm run seed"
   },
   "dependencies": {

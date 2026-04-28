@@ -12,7 +12,7 @@ export async function up(knex) {
     t.integer("is_private").notNullable().defaultTo(1);
   });
 }
-//drop if exists
+
 export async function down(knex) {
   await knex.schema.dropTable("snippets");
 }

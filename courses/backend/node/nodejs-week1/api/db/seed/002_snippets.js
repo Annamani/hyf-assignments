@@ -1,6 +1,6 @@
 export async function seed(knex) {
   await knex("snippets").del();
-
+  //insert snippets data
   await knex("snippets").insert([
     {
       user_id: 1,

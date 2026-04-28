@@ -15,6 +15,7 @@ export async function up(knex) {
     t.primary(["snippet_id", "tag_id"]);
   });
 }
+
 export async function down(knex) {
   await knex.schema.dropTable("snippet_tags");
 }

@@ -2,6 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 // recreate __dirname
+//to avoid path issues that i faced
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

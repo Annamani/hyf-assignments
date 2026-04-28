@@ -32,6 +32,50 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+//Part B: search engine
+// GET /search
+router.get("/search", async (req, res) => {
+  try {
+    const { q } = req.query;
+    let query = knex("snippets");
+    if (q) {
+      query = query
+        .where("title", "like", `%${q}%`)
+        .orWhere("contents", "like", `%${q}%`);
+    }
+    const results = await query;
+    res.json(results);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+// POST /search
+router.post("/search", async (req, res) => {
+  try {
+    const { q } = req.query;
+    const { fields } = req.body;
+    if (q && fields) {
+      return res.status(400).json({
+        error: "cant use both q and fields together",
+      });
+    }
+    let query = knex("snippets").select("id", "title", "contents");
+    if (q) {
+      query = query
+        .where("title", "like", `%${q}%`)
+        .orWhere("contents", "like", `%${q}%`);
+    }
+    if (fields) {
+      Object.entries(fields).forEach(([key, value]) => {
+        query = query.where(key, "like", `%${value}%`);
+      });
+    }
+    const results = await query;
+    res.status(200).json(results);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 // /api/snippets/:id-GET-Returns the snippet by id
 router.get("/:id", async (req, res) => {
   try {
@@ -78,4 +122,5 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 export default router;

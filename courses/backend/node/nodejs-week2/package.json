@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-week1",
+  "version": "1.0.0",
+  "description": "Express + Knex + SQLite project",
+  "main": "api/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
+    "db:reset": "npm run rollback && npm run migrate && npm run seed"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "knex": "^3.2.9",
+    "sqlite3": "^6.0.1",
+    "zod": "^4.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

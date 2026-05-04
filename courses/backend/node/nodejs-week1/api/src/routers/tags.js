@@ -13,12 +13,21 @@ router.get("/", async (req, res) => {
   }
 });
 ///api/tags- POST-Adds a new tag to the database
+import z from "zod";
+const createSchema = z.object({
+  name: z.string().min(3),
+});
 router.post("/", async (req, res) => {
   try {
-    const { name } = req.body;
-    if (!name) {
-      return res.status(400).json({ error: "Missing name" });
+    const { error, data } = createSchema.safeParse(req.body);
+    if (error) {
+      return res.status(500).json({ issues: error.issues });
     }
+    const { name } = data;
+    // const { name } = req.body;
+    // if (!name) {
+    //   return res.status(400).json({ error: "Missing name" });
+    // }
     const [id] = await knex("tags").insert({ name });
     const tag = await knex("tags").where({ id }).first();
     res.status(201).json(tag);

@@ -1,80 +1,87 @@
 import express from "express";
 import knex from "../db.js";
-
-const router = express.Router();
-
-// GET all tags
-router.get("/", async (req, res) => {
-  try {
-    const tags = await knex("tags").select("*");
-    res.json(tags);
-  } catch {
-    res.status(500).json({ error: "Failed to fetch tags" });
-  }
-});
-///api/tags- POST-Adds a new tag to the database
 import z from "zod";
+const router = express.Router();
+// create schema
 const createSchema = z.object({
   name: z.string().min(3),
 });
-router.post("/", async (req, res) => {
+//Define error handler helper
+const validationError = (issues) => {
+  const err = new Error("Validation failed");
+  err.status = 400;
+  err.details = issues;
+  return err;
+};
+// GET all tags
+router.get("/", async (req, res, next) => {
   try {
-    const { error, data } = createSchema.safeParse(req.body);
-    if (error) {
-      return res.status(500).json({ issues: error.issues });
-    }
-    const { name } = data;
-    // const { name } = req.body;
-    // if (!name) {
-    //   return res.status(400).json({ error: "Missing name" });
-    // }
+    const tags = await knex("tags").select("*");
+    res.json(tags);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// /api/tags- POST-Adds a new tag to the database
+router.post("/", async (req, res, next) => {
+  try {
+    const result = createSchema.safeParse(req.body);
+    if (!result.success) return next(validationError(result.error.issues));
+    const { name } = result.data;
     const [id] = await knex("tags").insert({ name });
     const tag = await knex("tags").where({ id }).first();
     res.status(201).json(tag);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    next(error);
   }
 });
 // /api/tags/:id - GET - Returns a tag by id
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const tagById = await knex("tags").where({ id: req.params.id }).first();
     if (!tagById) {
-      return res.status(404).json({ error: "Tag not found" });
+      const err = new Error("Tag not found");
+      err.status = 404;
+      return next(err);
     }
     res.status(200).json(tagById);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    next(error);
   }
 });
 // /api/tags/:id - PUT - Updates the tag by id
-router.put("/:id", async (req, res) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const updatedRows = await knex("tags")
       .where({ id: req.params.id })
       .update(req.body);
     if (!updatedRows) {
-      return res.status(404).json({ error: "Tag not found" });
+      const err = new Error("Tag not updated");
+      err.status = 404;
+      return next(err);
     }
     const updatedTag = await knex("tags").where({ id: req.params.id }).first();
     res.status(200).json(updatedTag);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    next(error);
   }
 });
 // /api/tags/:id - DELETE - Deletes the tag by id
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const deleted = await knex("tags").where({ id: req.params.id }).del();
     if (!deleted) {
-      return res.status(404).json({ error: "Tag not found" });
+      const err = new Error("Tag not found");
+      err.status = 404;
+      return next(err);
     }
     res.status(200).json({
       message: "Tag deleted successfully",
       deletedId: req.params.id,
     });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    next(error);
   }
 });
 export default router;

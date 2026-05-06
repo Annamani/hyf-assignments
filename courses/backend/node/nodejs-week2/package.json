@@ -13,6 +13,8 @@
     "express": "^4.19.2",
     "knex": "^3.2.9",
     "sqlite3": "^6.0.1",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0",
     "zod": "^4.4.2"
   },
   "devDependencies": {

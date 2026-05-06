@@ -41,7 +41,7 @@ const sortQuerySchema = z.object({
 const tagQuerySchema = z.object({
   tag: z.string().min(1),
 });
-// search body sce
+// search body schema
 const searchBodySchema = z.object({
   fields: z.record(z.string()).optional(),
 });

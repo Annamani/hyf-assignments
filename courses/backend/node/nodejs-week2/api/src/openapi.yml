@@ -1,0 +1,213 @@
+openapi: 3.0.4
+info:
+  title: Snippets API
+  version: 1.0.0
+  description: API for managing and searching code snippets
+
+servers:
+  - url: http://localhost:3000/api/snippets
+
+paths:
+  /:
+    post:
+      summary: Create a new snippet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SnippetInput"
+      responses:
+        "201":
+          description: Snippet created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Snippet"
+        "400":
+          description: Validation error
+
+  /search:
+    get:
+      summary: Search snippets by query
+      parameters:
+        - in: query
+          name: q
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of matching snippets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Snippet"
+
+  /filter:
+    get:
+      summary: Filter snippets by tag (search in title)
+      parameters:
+        - in: query
+          name: tag
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Filtered snippets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Snippet"
+        "400":
+          description: Validation error
+
+  /public:
+    get:
+      summary: Get all public snippets
+      responses:
+        "200":
+          description: Public snippets list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Snippet"
+
+  /{id}:
+    get:
+      summary: Get snippet by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Snippet found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Snippet"
+        "404":
+          description: Snippet not found
+
+    put:
+      summary: Update snippet by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SnippetUpdate"
+      responses:
+        "200":
+          description: Updated snippet
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Snippet"
+        "400":
+          description: Validation error
+        "404":
+          description: Snippet not found
+
+    delete:
+      summary: Delete snippet by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Snippet deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  deletedId:
+                    type: integer
+        "404":
+          description: Snippet not found
+
+components:
+  schemas:
+    Snippet:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        contents:
+          type: string
+        user_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        is_private:
+          type: boolean
+
+    SnippetInput:
+      type: object
+      required:
+        - title
+        - contents
+        - user_id
+      properties:
+        title:
+          type: string
+          minLength: 1
+        contents:
+          type: string
+          minLength: 10
+        user_id:
+          type: integer
+          minimum: 1
+
+    SnippetUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        contents:
+          type: string
+        user_id:
+          type: integer
+
+    SearchBody:
+      type: object
+      properties:
+        fields:
+          type: object
+          additionalProperties:
+            type: string

@@ -9,7 +9,7 @@ export async function up(knex) {
     t.string("token").unique();
   });
 }
-//drop if exists
+
 export async function down(knex) {
   await knex.schema.dropTable("users");
 }

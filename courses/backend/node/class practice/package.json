@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-week1",
+  "version": "1.0.0",
+  "description": "Express + Knex + SQLite project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "migrate": "knex --knexfile ./api/db/knex-file.js migrate:latest",
+    "rollback": "knex --knexfile ./api/db/knex-file.js migrate:rollback",
+    "seed": "knex --knexfile ./api/db/knex-file.js seed:run",
+    "migrate:make": "knex --knexfile ./api/db/knex-file.js migrate:make",
+    "seed:make": "knex --knexfile ./api/db/knex-file.js seed:make",
+    "db:reset": "npm run rollback && npm run migrate && npm run seed"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "knex": "^3.2.9",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

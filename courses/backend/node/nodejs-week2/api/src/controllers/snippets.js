@@ -64,6 +64,7 @@ export async function getUsers(req, res, next) {
       "first_name",
       "last_name",
       "email",
+      "role",
     );
     if (users.length === 0)
       return res.status(404).json({ error: "User not found" });

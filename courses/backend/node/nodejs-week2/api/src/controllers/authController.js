@@ -13,6 +13,7 @@ const signUpSchema = z.object({
   last_name: z.string().min(3),
   email: z.string().email(),
   password: z.string().min(8),
+  role: z.enum(["user", "admin", "moderator"]).optional(),
 });
 //Login schema
 const loginSchema = z.object({
@@ -26,7 +27,7 @@ export async function signUp(req, res, next) {
     const result = signUpSchema.safeParse(req.body);
     if (!result.success)
       return res.status(400).json({ error: result.error.issues });
-    const { first_name, last_name, email, password } = result.data;
+    const { first_name, last_name, email, password, role } = result.data;
     const existing = await knex("users").where({ email }).first();
     if (existing) {
       return res.status(409).json({ message: "Email already exists" });
@@ -38,9 +39,10 @@ export async function signUp(req, res, next) {
         last_name,
         email,
         password_hash: hashed_password,
+        role: role || "user",
       })
-      .returning(["id", "first_name", "last_name", "email"]);
-    res.status(201).json({ id, first_name, last_name, email });
+      .returning(["id", "first_name", "last_name", "email", "role"]);
+    res.status(201).json({ id, first_name, last_name, email, role });
   } catch (error) {
     next(error);
   }
@@ -111,7 +113,7 @@ export async function loginToken(req, res, next) {
 
     //Return to client
     return res.status(200).json({
-      message: "Login successful (Database Token)",
+      message: "Login successful",
       token: randomToken,
     });
   } catch (error) {
@@ -121,5 +123,28 @@ export async function loginToken(req, res, next) {
 }
 
 //POST/api/users/logout-token
-export async function logOutToken(req, res, next) {}
+export async function logOutToken(req, res, next) {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({
+        error: "Authorization header missing",
+      });
+    }
+    const token = authHeader.split(" ")[1];
+    // Delete token from database
+    const deleted = await knex("tokens").where({ token }).del();
+    if (!deleted) {
+      return res.status(401).json({
+        error: "Invalid token or already logged out",
+      });
+    }
+    return res.status(200).json({
+      message: "Logged out successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
 export default router;

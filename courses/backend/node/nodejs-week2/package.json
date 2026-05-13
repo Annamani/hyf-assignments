@@ -7,11 +7,19 @@
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon api/index.js",
+    "db:migrate": "knex migrate:latest --knexfile ./knexfile.js",
+    "db:seed": "knex seed:run --knexfile ./knexfile.js",
+    "db:rollback": "knex migrate:rollback --knexfile ./knexfile.js",
     "db:reset": "npm run rollback && npm run migrate && npm run seed"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
     "express": "^4.19.2",
-    "knex": "^3.2.9",
+    "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "knex": "^3.2.10",
     "sqlite3": "^6.0.1",
     "swagger-ui-express": "^5.0.1",
     "yamljs": "^0.3.0",

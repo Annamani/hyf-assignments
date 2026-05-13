@@ -1,5 +1,9 @@
 import express from "express";
-import { authMiddleware, authTokenMiddleware } from "../middleware/auth.js";
+import {
+  authMiddleware,
+  authTokenMiddleware,
+  requireRole,
+} from "../middleware/auth.js";
 import {
   createSnippet,
   searchSnippets,
@@ -33,7 +37,7 @@ router.get("/", getAllSnippets);
 // create snippet (must be logged in)
 router.post("/", authTokenMiddleware, createSnippet);
 // delete snippet (must be logged in)
-router.delete("/:id", authTokenMiddleware, deleteSnippet);
+router.delete("/:id", authTokenMiddleware, requireRole("admin"), deleteSnippet);
 // my snippets (must be logged in)
 router.get("/my-snippets", authMiddleware, getMySnippets);
 // update snippet (must be logged in)

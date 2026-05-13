@@ -19,5 +19,5 @@ authRouter.get("/profile-token", authTokenMiddleware, (req, res) => {
     user: req.user,
   });
 });
-
+authRouter.get("/logout-token", logOutToken);
 export default authRouter;

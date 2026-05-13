@@ -31,7 +31,6 @@ export const authMiddleware = (req, res, next) => {
 export const authTokenMiddleware = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
-    // Check Authorization header
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({
         error: "Authorization header missing or invalid",
@@ -44,7 +43,6 @@ export const authTokenMiddleware = async (req, res, next) => {
         error: "Token missing",
       });
     }
-
     // Find token in database
     const storedToken = await knex("tokens").where({ token }).first();
     if (!storedToken) {
@@ -60,7 +58,6 @@ export const authTokenMiddleware = async (req, res, next) => {
         error: "Token expired",
       });
     }
-    // Find user
     const user = await knex("users").where({ id: storedToken.user_id }).first();
     if (!user) {
       return res.status(401).json({
@@ -79,4 +76,31 @@ export const authTokenMiddleware = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const requireRole = (roles) => {
+  return (req, res, next) => {
+    try {
+      const user = req.user;
+
+      if (!user) {
+        return res.status(401).json({
+          error: "NOT_AUTHENTICATED",
+        });
+      }
+
+      const allowed = Array.isArray(roles) ? roles : [roles];
+
+      if (!allowed.includes(user.role)) {
+        return res.status(403).json({
+          error: "FORBIDDEN",
+          message: "Insufficient permissions",
+        });
+      }
+
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
 };

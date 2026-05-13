@@ -1,5 +1,5 @@
 import express from "express";
-import knex from "./api/db/knex.js";
+import knex from "./api/src/db.js";
 
 const app = express();
 const port = 3000;

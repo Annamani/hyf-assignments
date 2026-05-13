@@ -1,0 +1,20 @@
+export async function up(knex) {
+  // 1. create tokens table
+  await knex.schema.createTable("tokens", (t) => {
+    t.increments("id").primary();
+    t.integer("user_id")
+      .unsigned()
+      .references("id")
+      .inTable("users")
+      .onDelete("CASCADE");
+
+    t.string("token").notNullable().unique();
+
+    t.timestamp("created_at").defaultTo(knex.fn.now());
+    t.timestamp("expires_at").nullable();
+  });
+}
+
+export async function down(knex) {
+  await knex.schema.dropTableIfExists("tokens");
+}

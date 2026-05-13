@@ -1,5 +1,5 @@
 import express from "express";
-import knex from "../db.js";
+import knex from "../configs/db.js";
 import z from "zod";
 const router = express.Router();
 // create schema

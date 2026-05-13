@@ -1,0 +1,604 @@
+{
+  "info": {
+    "_postman_id": "6683cb33-b955-43e8-8924-75eb2b97a93a",
+    "name": "Assignment_node/Week3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3547654",
+    "_collection_link": "https://go.postman.co/collection/3547654-6683cb33-b955-43e8-8924-75eb2b97a93a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Snippets",
+      "item": [
+        {
+          "name": "Get all snippets",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"martin.hansen@example.com\",\r\n    \"password\":\"myPass@7890\"\r\n\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST new snippet for user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "e416e9197cbe6d4f5d3e52cfa2a4ac6800a656766a7e49319bf8a9c6e6bca6f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n     \"title\":\"creating new snippet\",\r\n      \"contents\":\"creating new snippet to check token availability\",\r\n      \"user_id\":6\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "name validation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"ak\",\r\n    \"email\":\"ak@example.com\",\r\n    \"password\":\"myPass$1234\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/signup",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register new user",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"first_name\":\"Anita\",\r\n    \"last_name\":\"Handasini\",\r\n    \"email\":\"ak.handasini@example.com\",\r\n    \"password\":\"myPass$1234\",\r\n    \"role\":\"moderator\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/signup",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "post new snippet using authentication",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NjI5MTA2LCJleHAiOjE3Nzg2MzI3MDZ9.q1nORrbghG5TRh7sjfh0ODgZDpyLUJf4Nfg9sgvi1gw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NTg4OTY2LCJleHAiOjE3Nzg1OTI1NjZ9.HF-sSnL4T3r9F7fWkRrES_aaCCDMyI76emA03wL4mdw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\":\"new snippet from authorised user\",\r\n    \"contents\":\"User create a new snippet after log in using JWT Token\",\r\n    \"user_id\": 6\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "only login user snippets",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NjI5ODc4LCJleHAiOjE3Nzg2MzM0Nzh9.k7eDOA6XHFQ-DrbXjLOoG_302bU_1l-him4drhpLlDo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NTg4OTY2LCJleHAiOjE3Nzg1OTI1NjZ9.HF-sSnL4T3r9F7fWkRrES_aaCCDMyI76emA03wL4mdw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\":\"new snippet from authorised user\",\r\n    \"contents\":\"User create a new snippet after log in using JWT Token\",\r\n    \"user_id\": 6\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets/my-snippets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets",
+                "my-snippets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User updated assigned snippets",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NjMwMjE2LCJleHAiOjE3Nzg2MzM4MTZ9.nIas6uy9Ib7enLpUC7_3Q7IJiKXS36WFrlZvhT93IbQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NTg4OTY2LCJleHAiOjE3Nzg1OTI1NjZ9.HF-sSnL4T3r9F7fWkRrES_aaCCDMyI76emA03wL4mdw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\":\"new updated snippet from authorised user\",\r\n    \"contents\":\"User create a new snippet after log in using JWT Token\",\r\n    \"user_id\": 6\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets/14",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets",
+                "14"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "insert tokens to tokens  table",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"csj@example.com\",\r\n    \"password\":\"myPass$8910\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NjMwMjE2LCJleHAiOjE3Nzg2MzM4MTZ9.nIas6uy9Ib7enLpUC7_3Q7IJiKXS36WFrlZvhT93IbQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"ak.maliena@example.com\",\r\n    \"password\":\"myPass$4567\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "authToken for user",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "5f32d38357f3c3f5006eae1e4a3ef8c4280601faf350b0da60e75d7729503847",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"ak.maliena@example.com\",\r\n    \"password\":\"myPass$4567\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/profile-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "profile-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout token",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "5f32d38357f3c3f5006eae1e4a3ef8c4280601faf350b0da60e75d7729503847",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"ak.maliena@example.com\",\r\n    \"password\":\"myPass$4567\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Role based authentication",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "e416e9197cbe6d4f5d3e52cfa2a4ac6800a656766a7e49319bf8a9c6e6bca6f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Testing RBAC\",\r\n  \"contents\": \"testing role based authentication\",\r\n  \"user_id\": 6\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete snippet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "e416e9197cbe6d4f5d3e52cfa2a4ac6800a656766a7e49319bf8a9c6e6bca6f6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Testing RBAC\",\r\n  \"contents\": \"testing role based authentication\",\r\n  \"user_id\": 6\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets/14",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets",
+                "14"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get all users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NTg4OTY2LCJleHAiOjE3Nzg1OTI1NjZ9.HF-sSnL4T3r9F7fWkRrES_aaCCDMyI76emA03wL4mdw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJhay5tYWxpZW5hQGV4YW1wbGUuY29tIiwiaWF0IjoxNzc4NTg4OTY2LCJleHAiOjE3Nzg1OTI1NjZ9.HF-sSnL4T3r9F7fWkRrES_aaCCDMyI76emA03wL4mdw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/snippets/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get snippets for user_id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/snippets/users/6",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "snippets",
+                "users",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Get machine Health",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "e416e9197cbe6d4f5d3e52cfa2a4ac6800a656766a7e49319bf8a9c6e6bca6f6",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "4eb170dfd1a82af5a9779b277fe635280556c1fb0f25ba75dc1f0fb7b5d0dfe8",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Testing RBAC\",\r\n  \"contents\": \"testing role based authentication\",\r\n  \"user_id\": 6\r\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
